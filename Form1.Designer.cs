@@ -30,9 +30,9 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.mnuSP = new System.Windows.Forms.ToolStripMenuItem();
-            this.báoCáoDoanhThuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.thanhToánToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuDT = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuTT = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuThoat = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -41,9 +41,9 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuSP,
-            this.báoCáoDoanhThuToolStripMenuItem,
-            this.thanhToánToolStripMenuItem,
-            this.thoátToolStripMenuItem});
+            this.mnuDT,
+            this.mnuTT,
+            this.mnuThoat});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 28);
@@ -57,23 +57,24 @@
             this.mnuSP.Text = "Quản lý sản phẩm";
             this.mnuSP.Click += new System.EventHandler(this.quảnLýSảnPhẩmToolStripMenuItem_Click);
             // 
-            // báoCáoDoanhThuToolStripMenuItem
+            // mnuDT
             // 
-            this.báoCáoDoanhThuToolStripMenuItem.Name = "báoCáoDoanhThuToolStripMenuItem";
-            this.báoCáoDoanhThuToolStripMenuItem.Size = new System.Drawing.Size(148, 24);
-            this.báoCáoDoanhThuToolStripMenuItem.Text = "Báo cáo Doanh thu";
+            this.mnuDT.Name = "mnuDT";
+            this.mnuDT.Size = new System.Drawing.Size(148, 24);
+            this.mnuDT.Text = "Báo cáo Doanh thu";
             // 
-            // thanhToánToolStripMenuItem
+            // mnuTT
             // 
-            this.thanhToánToolStripMenuItem.Name = "thanhToánToolStripMenuItem";
-            this.thanhToánToolStripMenuItem.Size = new System.Drawing.Size(95, 24);
-            this.thanhToánToolStripMenuItem.Text = "Thanh toán";
+            this.mnuTT.Name = "mnuTT";
+            this.mnuTT.Size = new System.Drawing.Size(95, 24);
+            this.mnuTT.Text = "Thanh toán";
             // 
-            // thoátToolStripMenuItem
+            // mnuThoat
             // 
-            this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
-            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(59, 24);
-            this.thoátToolStripMenuItem.Text = "Thoát";
+            this.mnuThoat.Name = "mnuThoat";
+            this.mnuThoat.Size = new System.Drawing.Size(59, 24);
+            this.mnuThoat.Text = "Thoát";
+            this.mnuThoat.Click += new System.EventHandler(this.mnuThoat_Click);
             // 
             // Form1
             // 
@@ -85,6 +86,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Quản lý cửa hàng nước ngọt";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -96,9 +98,9 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem mnuSP;
-        private System.Windows.Forms.ToolStripMenuItem báoCáoDoanhThuToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem thanhToánToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem thoátToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuDT;
+        private System.Windows.Forms.ToolStripMenuItem mnuTT;
+        private System.Windows.Forms.ToolStripMenuItem mnuThoat;
     }
 }
 
