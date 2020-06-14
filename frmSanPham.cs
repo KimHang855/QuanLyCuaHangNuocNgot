@@ -7,20 +7,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace QuanLyCuaHangNuocNgot
 {
-    public partial class Form1 : Form
+    public partial class frmSanPham : Form
     {
-        public Form1()
+        public frmSanPham()
         {
             InitializeComponent();
         }
 
-        private void quảnLýSảnPhẩmToolStripMenuItem_Click(object sender, EventArgs e)
+        private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            frmSanPham frmSanPham = new frmSanPham();
-            frmSanPham.ShowDialog();
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
