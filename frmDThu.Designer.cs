@@ -34,9 +34,9 @@
             this.btnThoat = new System.Windows.Forms.Button();
             this.dtpNgay = new System.Windows.Forms.DateTimePicker();
             this.lbNgay = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvDThu = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDThu)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -99,29 +99,29 @@
             this.lbNgay.TabIndex = 0;
             this.lbNgay.Text = "Ngày";
             // 
-            // dataGridView1
+            // dgvDThu
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 159);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(678, 324);
-            this.dataGridView1.TabIndex = 6;
+            this.dgvDThu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDThu.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvDThu.Location = new System.Drawing.Point(0, 159);
+            this.dgvDThu.Name = "dgvDThu";
+            this.dgvDThu.RowTemplate.Height = 24;
+            this.dgvDThu.Size = new System.Drawing.Size(678, 324);
+            this.dgvDThu.TabIndex = 6;
             // 
             // frmDThu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(678, 483);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvDThu);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmDThu";
             this.Text = "frmDThu";
             this.Load += new System.EventHandler(this.frmDThu_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDThu)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -134,6 +134,6 @@
         private System.Windows.Forms.TextBox txtDT;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Button btnTong;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvDThu;
     }
 }
