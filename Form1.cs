@@ -35,10 +35,18 @@ namespace QuanLyCuaHangNuocNgot
             frmDThu.ShowDialog();
         }
 
-        private void mnuThoat_Click(object sender, EventArgs e)
+       
+
+        private void mnuThoat_Click_1(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn muốn thoát khỏi ứng dụng ?", "Thông báo", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
                 Application.Exit();
+        }
+
+        private void mnuBanHang_Click(object sender, EventArgs e)
+        {
+            frmBanHang frmBanHang = new frmBanHang();
+            frmBanHang.ShowDialog();
         }
     }
 }
