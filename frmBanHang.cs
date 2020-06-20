@@ -80,8 +80,14 @@ namespace QuanLyCuaHangNuocNgot
         }
 
         private void btnCapNhat_Click(object sender, EventArgs e)
-        {
+        {           
             connnection.Open();
+            //bán sản phẩm cập nhật lại số lượng tồn
+            int SoLuongTon = Int32.Parse(txtSLTon.Text);
+            int SoLuongBan = Int32.Parse(txtSLBan.Text);
+            txtSLTon.Text = (SoLuongTon - SoLuongBan).ToString();
+
+            //Sửa, cập nhật ngày
             string sqlCapNhat = "Update SanPham Set TenSP=@TenSP, Gia=@Gia, SoLuongTon=@SoLuongTon, Ngay=@Ngay, NgayBan=@NgayBan, DonVi=@DonVi Where MaSP=@MaSP ";
             SqlCommand cmd = new SqlCommand(sqlCapNhat, connnection);
             cmd.Parameters.AddWithValue("MaSP", txtMaSP.Text);
@@ -91,10 +97,9 @@ namespace QuanLyCuaHangNuocNgot
             cmd.Parameters.AddWithValue("Ngay", txtNgayBan.Text);
             cmd.Parameters.AddWithValue("NgayBan", txtNgayBan.Text);
             cmd.Parameters.AddWithValue("DonVi", txtDVT.Text);
-            cmd.ExecuteNonQuery();
-            //MessageBox.Show("Cập nhật thông tin sản phẩm thành công");
-            HienThi();
-            
+            cmd.ExecuteNonQuery();                    
+            MessageBox.Show("Cập nhật thành công");
+            HienThi();            
             connnection.Close();
         }
     }
