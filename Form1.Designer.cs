@@ -31,9 +31,10 @@
             this.mnuSP = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuNCC = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuDT = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuThoat = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuBanHang = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.mnuThoat = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -59,12 +60,12 @@
             this.mnuDT.Text = "Báo cáo doanh thu";
             this.mnuDT.Click += new System.EventHandler(this.mnuDT_Click);
             // 
-            // mnuThoat
+            // mnuBanHang
             // 
-            this.mnuThoat.Name = "mnuThoat";
-            this.mnuThoat.Size = new System.Drawing.Size(59, 24);
-            this.mnuThoat.Text = "Thoát";
-            this.mnuThoat.Click += new System.EventHandler(this.mnuThoat_Click);
+            this.mnuBanHang.Name = "mnuBanHang";
+            this.mnuBanHang.Size = new System.Drawing.Size(83, 24);
+            this.mnuBanHang.Text = "Bán hàng";
+            this.mnuBanHang.Click += new System.EventHandler(this.mnuThoat_Click);
             // 
             // menuStrip1
             // 
@@ -73,6 +74,7 @@
             this.mnuSP,
             this.mnuNCC,
             this.mnuDT,
+            this.mnuBanHang,
             this.mnuThoat});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -90,6 +92,12 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            // 
+            // mnuThoat
+            // 
+            this.mnuThoat.Name = "mnuThoat";
+            this.mnuThoat.Size = new System.Drawing.Size(59, 24);
+            this.mnuThoat.Text = "Thoát";
             // 
             // Form1
             // 
@@ -115,9 +123,10 @@
         private System.Windows.Forms.ToolStripMenuItem mnuSP;
         private System.Windows.Forms.ToolStripMenuItem mnuNCC;
         private System.Windows.Forms.ToolStripMenuItem mnuDT;
-        private System.Windows.Forms.ToolStripMenuItem mnuThoat;
+        private System.Windows.Forms.ToolStripMenuItem mnuBanHang;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolStripMenuItem mnuThoat;
     }
 }
 
