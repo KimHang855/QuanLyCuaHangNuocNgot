@@ -46,11 +46,7 @@
             this.btnSua = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnDong = new System.Windows.Forms.Button();
-            this.btnTong = new System.Windows.Forms.Button();
-            this.txtTong = new System.Windows.Forms.TextBox();
             this.btnTim = new System.Windows.Forms.Button();
-            this.btnThanhToan = new System.Windows.Forms.Button();
-            this.txtThanhToan = new System.Windows.Forms.TextBox();
             this.btnClear = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNCC)).BeginInit();
@@ -168,10 +164,10 @@
             this.dgvNCC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvNCC.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1});
-            this.dgvNCC.Location = new System.Drawing.Point(2, 188);
+            this.dgvNCC.Location = new System.Drawing.Point(2, 170);
             this.dgvNCC.Name = "dgvNCC";
             this.dgvNCC.RowTemplate.Height = 24;
-            this.dgvNCC.Size = new System.Drawing.Size(873, 246);
+            this.dgvNCC.Size = new System.Drawing.Size(872, 264);
             this.dgvNCC.TabIndex = 13;
             this.dgvNCC.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNCC_CellClick);
             // 
@@ -191,7 +187,7 @@
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(75, 48);
             this.btnSua.TabIndex = 15;
-            this.btnSua.Text = "Sửa";
+            this.btnSua.Text = "Cập nhật";
             this.btnSua.UseVisualStyleBackColor = true;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
@@ -215,23 +211,6 @@
             this.btnDong.UseVisualStyleBackColor = true;
             this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
             // 
-            // btnTong
-            // 
-            this.btnTong.Location = new System.Drawing.Point(638, 59);
-            this.btnTong.Name = "btnTong";
-            this.btnTong.Size = new System.Drawing.Size(101, 36);
-            this.btnTong.TabIndex = 18;
-            this.btnTong.Text = "Tổng";
-            this.btnTong.UseVisualStyleBackColor = true;
-            this.btnTong.Click += new System.EventHandler(this.btnTong_Click);
-            // 
-            // txtTong
-            // 
-            this.txtTong.Location = new System.Drawing.Point(759, 66);
-            this.txtTong.Name = "txtTong";
-            this.txtTong.Size = new System.Drawing.Size(104, 22);
-            this.txtTong.TabIndex = 19;
-            // 
             // btnTim
             // 
             this.btnTim.Location = new System.Drawing.Point(51, 454);
@@ -241,23 +220,6 @@
             this.btnTim.Text = "Tìm";
             this.btnTim.UseVisualStyleBackColor = true;
             this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
-            // 
-            // btnThanhToan
-            // 
-            this.btnThanhToan.Location = new System.Drawing.Point(638, 113);
-            this.btnThanhToan.Name = "btnThanhToan";
-            this.btnThanhToan.Size = new System.Drawing.Size(101, 35);
-            this.btnThanhToan.TabIndex = 21;
-            this.btnThanhToan.Text = "Thanh toán";
-            this.btnThanhToan.UseVisualStyleBackColor = true;
-            this.btnThanhToan.Click += new System.EventHandler(this.btnThanhToan_Click);
-            // 
-            // txtThanhToan
-            // 
-            this.txtThanhToan.Location = new System.Drawing.Point(759, 121);
-            this.txtThanhToan.Name = "txtThanhToan";
-            this.txtThanhToan.Size = new System.Drawing.Size(104, 22);
-            this.txtThanhToan.TabIndex = 22;
             // 
             // btnClear
             // 
@@ -280,11 +242,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(875, 528);
             this.Controls.Add(this.btnClear);
-            this.Controls.Add(this.txtThanhToan);
-            this.Controls.Add(this.btnThanhToan);
             this.Controls.Add(this.btnTim);
-            this.Controls.Add(this.txtTong);
-            this.Controls.Add(this.btnTong);
             this.Controls.Add(this.btnDong);
             this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.btnSua);
@@ -332,11 +290,7 @@
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnDong;
-        private System.Windows.Forms.Button btnTong;
-        private System.Windows.Forms.TextBox txtTong;
         private System.Windows.Forms.Button btnTim;
-        private System.Windows.Forms.Button btnThanhToan;
-        private System.Windows.Forms.TextBox txtThanhToan;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
     }

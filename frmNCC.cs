@@ -31,11 +31,11 @@ namespace QuanLyCuaHangNuocNgot
             //hoặc da.Fill(dt);  //Đổ kết quả từ câu lệnh sql vào table            
             dgvNCC.DataSource = dt;
         }
-
+       
         private void frmNCC_Load(object sender, EventArgs e)
         {
             cn.Open();
-            HienThi();
+            HienThi();           
             cn.Close();
         }       
 
@@ -81,6 +81,7 @@ namespace QuanLyCuaHangNuocNgot
         private void btnSua_Click(object sender, EventArgs e)
         {
             cn.Open();
+            //Cập nhật form NCC
             string sqlInsert = "Update NCC Set TenNCC=@TenNCC, Gia=@Gia, SoLuongMua=@SoLuongMua, DiaChi=@DiaChi,GhiChu=@GhiChu Where MaNCC=@MaNCC ";
             SqlCommand cmd = new SqlCommand(sqlInsert, cn);
             cmd.Parameters.AddWithValue("MaNCC", txtMaNCC.Text);
@@ -88,11 +89,11 @@ namespace QuanLyCuaHangNuocNgot
             cmd.Parameters.AddWithValue("Gia", txtGia.Text);
             cmd.Parameters.AddWithValue("SoLuongMua", txtSLMua.Text);
             cmd.Parameters.AddWithValue("DiaChi", txtDiaChi.Text);
-            cmd.Parameters.AddWithValue("GhiChu", txtGC.Text);
+            cmd.Parameters.AddWithValue("GhiChu", txtGC.Text);           
             cmd.ExecuteNonQuery();
             MessageBox.Show("Cập nhật thành công");
             HienThi();
-            ResetValues();
+            //ResetValues();
             cn.Close();
         }
 
@@ -139,33 +140,7 @@ namespace QuanLyCuaHangNuocNgot
             dgvNCC.DataSource = dt;
             cn.Close();
         }
-
-        private void btnTong_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(txtSLMua.Text))
-                MessageBox.Show("Vui lòng nhập số lượng bán");
-            else
-            {
-                int Gia = Int32.Parse(txtGia.Text);
-                int SoLuongMua = Int32.Parse(txtSLMua.Text);
-                txtTong.Text = (Gia * SoLuongMua).ToString();
-                int a;
-                bool d = Int32.TryParse(txtThanhToan.Text, out a);
-                a += Int32.Parse(txtTong.Text);
-                txtThanhToan.Text = (a).ToString();
-            }
-        }
-
-        private void btnThanhToan_Click(object sender, EventArgs e)
-        {
-            DialogResult kq = MessageBox.Show("Giá trị của đơn hàng này là " + txtThanhToan.Text + "", "Thông báo", MessageBoxButtons.YesNo);
-            if (kq == DialogResult.Yes)
-            {
-                MessageBox.Show("Hóa đơn đã được thanh toán thành công");
-                Application.Exit();
-            }
-        }
-
+       
         private void btnClear_Click(object sender, EventArgs e)
         {
             txtMaNCC.Text = null;
