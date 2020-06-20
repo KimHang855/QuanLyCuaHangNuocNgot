@@ -49,6 +49,8 @@
             this.btnTong = new System.Windows.Forms.Button();
             this.txtTong = new System.Windows.Forms.TextBox();
             this.btnTim = new System.Windows.Forms.Button();
+            this.btnThanhToan = new System.Windows.Forms.Button();
+            this.txtThanhToan = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNCC)).BeginInit();
             this.SuspendLayout();
             // 
@@ -211,9 +213,9 @@
             // 
             // btnTong
             // 
-            this.btnTong.Location = new System.Drawing.Point(638, 71);
+            this.btnTong.Location = new System.Drawing.Point(638, 59);
             this.btnTong.Name = "btnTong";
-            this.btnTong.Size = new System.Drawing.Size(101, 50);
+            this.btnTong.Size = new System.Drawing.Size(101, 36);
             this.btnTong.TabIndex = 18;
             this.btnTong.Text = "Tổng";
             this.btnTong.UseVisualStyleBackColor = true;
@@ -221,7 +223,7 @@
             // 
             // txtTong
             // 
-            this.txtTong.Location = new System.Drawing.Point(759, 85);
+            this.txtTong.Location = new System.Drawing.Point(759, 66);
             this.txtTong.Name = "txtTong";
             this.txtTong.Size = new System.Drawing.Size(104, 22);
             this.txtTong.TabIndex = 19;
@@ -236,11 +238,30 @@
             this.btnTim.UseVisualStyleBackColor = true;
             this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
             // 
+            // btnThanhToan
+            // 
+            this.btnThanhToan.Location = new System.Drawing.Point(638, 113);
+            this.btnThanhToan.Name = "btnThanhToan";
+            this.btnThanhToan.Size = new System.Drawing.Size(101, 35);
+            this.btnThanhToan.TabIndex = 21;
+            this.btnThanhToan.Text = "Thanh toán";
+            this.btnThanhToan.UseVisualStyleBackColor = true;
+            this.btnThanhToan.Click += new System.EventHandler(this.btnThanhToan_Click);
+            // 
+            // txtThanhToan
+            // 
+            this.txtThanhToan.Location = new System.Drawing.Point(759, 121);
+            this.txtThanhToan.Name = "txtThanhToan";
+            this.txtThanhToan.Size = new System.Drawing.Size(104, 22);
+            this.txtThanhToan.TabIndex = 22;
+            // 
             // frmNCC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(875, 528);
+            this.Controls.Add(this.txtThanhToan);
+            this.Controls.Add(this.btnThanhToan);
             this.Controls.Add(this.btnTim);
             this.Controls.Add(this.txtTong);
             this.Controls.Add(this.btnTong);
@@ -294,5 +315,7 @@
         private System.Windows.Forms.Button btnTong;
         private System.Windows.Forms.TextBox txtTong;
         private System.Windows.Forms.Button btnTim;
+        private System.Windows.Forms.Button btnThanhToan;
+        private System.Windows.Forms.TextBox txtThanhToan;
     }
 }
