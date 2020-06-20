@@ -26,7 +26,7 @@ namespace QuanLyCuaHangNuocNgot
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Hide();
-            Form2 n2 = new Form2();
+            frmTaoTK n2 = new frmTaoTK();
             n2.ShowDialog();
         }
 
@@ -39,14 +39,14 @@ namespace QuanLyCuaHangNuocNgot
                 connnection.Open();
                 string tk = txtUsername.Text;
                 string mk = txtPassword.Text;
-                string sql = "Select * From TaiKhoan Where TenTaiKhoan ='" + tk + "'and Matkhau ='" + mk + "'";
+                string sql = "Select * From TaiKhoan Where TenTK ='" + tk + "'and MatKhau ='" + mk + "'";
                 SqlCommand cmd = new SqlCommand(sql, connnection);
                 SqlDataReader dt = cmd.ExecuteReader();
                 if (dt.Read() == true)
                 {
                     MessageBox.Show("Đăng nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Hide();
-                    Form3 n3 = new Form3();
+                    Form1 n3 = new Form1();
                     n3.ShowDialog();
                     this.Show();
                 }
@@ -57,6 +57,7 @@ namespace QuanLyCuaHangNuocNgot
                 connnection.Close();
                 // dùng cho câu lệnh insert, update
                 // cmd.ExecuteNonQuery();
+                this.Hide();
             }
             catch (Exception ex)
             {
@@ -84,15 +85,14 @@ namespace QuanLyCuaHangNuocNgot
 
         private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("Bạn muốn thoát khỏi ứng dụng ?", "Thông báo", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
-                Application.Exit();
+        //    if (MessageBox.Show("Bạn muốn thoát khỏi ứng dụng ?", "Thông báo", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+        //        Application.Exit();
         }
 
         private void btExit_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn muốn thoát khỏi ứng dụng ?", "Thông báo", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
-                //Application.Exit();
-                this.Close();
+                Application.Exit();
         }
     }
 }
