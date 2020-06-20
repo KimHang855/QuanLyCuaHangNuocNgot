@@ -6,7 +6,7 @@ USE NuocNgotStore_3
 GO
 
 
-CREATE TABLE [dbo].[[TaiKhoan](
+CREATE TABLE [dbo].[TaiKhoan](
 	[TenTK] [varchar](50) NOT NULL,
 	[MatKhau] [varchar](50) NOT NULL,
 	PRIMARY KEY (TenTK)	
@@ -14,7 +14,7 @@ CREATE TABLE [dbo].[[TaiKhoan](
 GO
 
 
-INSERT INTO [dbo].[Users] ([UserName], [Password], [Type]) VALUES 
+INSERT INTO [dbo].[TaiKhoan] ([TenTK], [MatKhau]) VALUES 
 	('admin', '123'),
 	('user1', '456')
 GO
