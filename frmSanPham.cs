@@ -14,7 +14,7 @@ namespace QuanLyCuaHangNuocNgot
     public partial class frmSanPham : Form
     {
         SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-H9PGTJJ\SQLEXPRESS;Initial Catalog=NuocNgotStore_3;Integrated Security=True");
-        //SqlDataAdapter da;        
+        SqlDataAdapter da;        
 
         public frmSanPham()
         {
@@ -47,7 +47,7 @@ namespace QuanLyCuaHangNuocNgot
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            //cn.Open();
+            cn.Open();
                        
             string sqlInsert = "Insert Into SanPham Values(@MaSP,@TenSP,@Gia,@SoLuongTon,@SoLuongBan,@Ngay,@DonVi)";
             //string sqlInsert = "Insert Into Product values('"+txtMaSP.Text+"','"+txtTenSP.Text+ "','"+txtGiaBan.Text+ "','"+txtSLTon.Text+ "','"+txtSLBan.Text+"','"+txtDVT.Text+ "','"+txtMaLoai.Text+ "','"+txtNCC.Text+ "','"+txtNgayBan.Text+"')";
@@ -63,7 +63,7 @@ namespace QuanLyCuaHangNuocNgot
             MessageBox.Show("Thêm sản phẩm thành công");
             HienThi();
             ResetValues();
-            //cn.Close();
+            cn.Close();
         }
 
         private void ResetValues()
@@ -127,7 +127,6 @@ namespace QuanLyCuaHangNuocNgot
             cmd.Parameters.AddWithValue("TenSP", txtTenSP.Text);
             cmd.Parameters.AddWithValue("Gia", txtGiaBan.Text);
             cmd.Parameters.AddWithValue("SoLuongTon", txtSLTon.Text);
-            cmd.Parameters.AddWithValue("SoLuongBan", txtSLBan.Text);
             cmd.Parameters.AddWithValue("Ngay", txtNgay.Text);
             cmd.Parameters.AddWithValue("DonVi", txtDVT.Text);
             cmd.ExecuteNonQuery();
@@ -140,14 +139,40 @@ namespace QuanLyCuaHangNuocNgot
         private void dgvSanPham_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             //hiện thị dl trong dgv lên textbox
-            int i;
-            i = dgvSanPham.CurrentCell.RowIndex;
-            txtMaSP.Text = dgvSanPham.Rows[i].Cells[0].Value.ToString();
-            txtTenSP.Text = dgvSanPham.Rows[i].Cells[1].Value.ToString();
-            txtGiaBan.Text = dgvSanPham.Rows[i].Cells[2].Value.ToString();
-            txtSLTon.Text = dgvSanPham.Rows[i].Cells[3].Value.ToString();
-            txtSLBan.Text = dgvSanPham.Rows[i].Cells[4].Value.ToString();
-            txtNgay.Text = dgvSanPham.Rows[i].Cells[5].Value.ToString();
+            int index = dgvSanPham.CurrentCell.RowIndex;
+            txtMaSP.Text = dgvSanPham.Rows[index].Cells["MaSP"].Value.ToString();
+            txtTenSP.Text = dgvSanPham.Rows[index].Cells["TenSP"].Value.ToString();
+            txtGiaBan.Text = dgvSanPham.Rows[index].Cells["Gia"].Value.ToString();
+            txtDVT.Text = dgvSanPham.Rows[index].Cells["DonVi"].Value.ToString();
+            txtSLTon.Text = dgvSanPham.Rows[index].Cells["SoLuongTon"].Value.ToString();
+            txtNgay.Text = dgvSanPham.Rows[index].Cells["Ngay"].Value.ToString();
+        }
+
+        private void btnTongTien_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtSLBan.Text))
+                MessageBox.Show("Vui lòng nhập số lượng bán");
+            else
+            {
+                int Gia = Int32.Parse(txtGiaBan.Text);
+                int SoLuongBan = Int32.Parse(txtSLBan.Text);
+                txtTongTien.Text = (Gia * SoLuongBan).ToString();
+                int a;
+                bool d = Int32.TryParse(txtThanhToan.Text, out a);
+                a += Int32.Parse(txtTongTien.Text);
+                txtThanhToan.Text = (a).ToString();
+
+            }
+        }
+
+        private void btnThanhToan_Click(object sender, EventArgs e)
+        {
+            DialogResult kq = MessageBox.Show("Giá trị của đơn hàng này là " + txtThanhToan.Text + "", "Thông báo", MessageBoxButtons.YesNo);
+            if (kq == DialogResult.Yes)
+            {
+                MessageBox.Show("Hóa đơn đã được thanh toán thành công");
+                Application.Exit();
+            }
         }
     }
 }

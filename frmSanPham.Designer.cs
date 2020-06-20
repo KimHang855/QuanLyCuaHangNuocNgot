@@ -51,6 +51,11 @@
             this.lbMaSP = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvSanPham = new System.Windows.Forms.DataGridView();
+            this.btnTongTien = new System.Windows.Forms.Button();
+            this.txtTongTien = new System.Windows.Forms.TextBox();
+            this.btnThanhToan = new System.Windows.Forms.Button();
+            this.txtThanhToan = new System.Windows.Forms.TextBox();
+            this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSanPham)).BeginInit();
@@ -121,6 +126,10 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.txtThanhToan);
+            this.panel2.Controls.Add(this.btnThanhToan);
+            this.panel2.Controls.Add(this.txtTongTien);
+            this.panel2.Controls.Add(this.btnTongTien);
             this.panel2.Controls.Add(this.txtNgay);
             this.panel2.Controls.Add(this.lbNgayBan);
             this.panel2.Controls.Add(this.txtDVT);
@@ -146,7 +155,8 @@
             // 
             this.txtNgay.Location = new System.Drawing.Point(745, 61);
             this.txtNgay.Name = "txtNgay";
-            this.txtNgay.Size = new System.Drawing.Size(130, 22);
+            this.txtNgay.ReadOnly = true;
+            this.txtNgay.Size = new System.Drawing.Size(163, 22);
             this.txtNgay.TabIndex = 22;
             // 
             // lbNgayBan
@@ -162,6 +172,7 @@
             // 
             this.txtDVT.Location = new System.Drawing.Point(449, 139);
             this.txtDVT.Name = "txtDVT";
+            this.txtDVT.ReadOnly = true;
             this.txtDVT.Size = new System.Drawing.Size(130, 22);
             this.txtDVT.TabIndex = 15;
             // 
@@ -176,13 +187,14 @@
             // 
             this.txtSLTon.Location = new System.Drawing.Point(449, 58);
             this.txtSLTon.Name = "txtSLTon";
+            this.txtSLTon.ReadOnly = true;
             this.txtSLTon.Size = new System.Drawing.Size(130, 22);
             this.txtSLTon.TabIndex = 13;
             // 
             // lbDVT
             // 
             this.lbDVT.AutoSize = true;
-            this.lbDVT.Location = new System.Drawing.Point(304, 142);
+            this.lbDVT.Location = new System.Drawing.Point(306, 142);
             this.lbDVT.Name = "lbDVT";
             this.lbDVT.Size = new System.Drawing.Size(75, 17);
             this.lbDVT.TabIndex = 9;
@@ -210,6 +222,7 @@
             // 
             this.txtGiaBan.Location = new System.Drawing.Point(116, 141);
             this.txtGiaBan.Name = "txtGiaBan";
+            this.txtGiaBan.ReadOnly = true;
             this.txtGiaBan.Size = new System.Drawing.Size(138, 22);
             this.txtGiaBan.TabIndex = 6;
             // 
@@ -226,6 +239,7 @@
             // 
             this.txtTenSP.Location = new System.Drawing.Point(116, 98);
             this.txtTenSP.Name = "txtTenSP";
+            this.txtTenSP.ReadOnly = true;
             this.txtTenSP.Size = new System.Drawing.Size(138, 22);
             this.txtTenSP.TabIndex = 4;
             // 
@@ -233,6 +247,7 @@
             // 
             this.txtMaSP.Location = new System.Drawing.Point(116, 58);
             this.txtMaSP.Name = "txtMaSP";
+            this.txtMaSP.ReadOnly = true;
             this.txtMaSP.Size = new System.Drawing.Size(138, 22);
             this.txtMaSP.TabIndex = 3;
             // 
@@ -268,6 +283,8 @@
             // dgvSanPham
             // 
             this.dgvSanPham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSanPham.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1});
             this.dgvSanPham.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvSanPham.Location = new System.Drawing.Point(0, 197);
             this.dgvSanPham.Name = "dgvSanPham";
@@ -275,7 +292,55 @@
             this.dgvSanPham.Size = new System.Drawing.Size(1000, 302);
             this.dgvSanPham.TabIndex = 2;
             this.dgvSanPham.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSanPham_CellClick);
-            
+            // 
+            // btnTongTien
+            // 
+            this.btnTongTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnTongTien.Location = new System.Drawing.Point(626, 103);
+            this.btnTongTien.Margin = new System.Windows.Forms.Padding(4);
+            this.btnTongTien.Name = "btnTongTien";
+            this.btnTongTien.Size = new System.Drawing.Size(107, 29);
+            this.btnTongTien.TabIndex = 23;
+            this.btnTongTien.Text = "Tổng tiền";
+            this.btnTongTien.UseVisualStyleBackColor = true;
+            this.btnTongTien.Click += new System.EventHandler(this.btnTongTien_Click);
+            // 
+            // txtTongTien
+            // 
+            this.txtTongTien.Location = new System.Drawing.Point(745, 107);
+            this.txtTongTien.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTongTien.Name = "txtTongTien";
+            this.txtTongTien.ReadOnly = true;
+            this.txtTongTien.Size = new System.Drawing.Size(163, 22);
+            this.txtTongTien.TabIndex = 24;
+            this.txtTongTien.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // btnThanhToan
+            // 
+            this.btnThanhToan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnThanhToan.Location = new System.Drawing.Point(626, 149);
+            this.btnThanhToan.Margin = new System.Windows.Forms.Padding(4);
+            this.btnThanhToan.Name = "btnThanhToan";
+            this.btnThanhToan.Size = new System.Drawing.Size(107, 32);
+            this.btnThanhToan.TabIndex = 25;
+            this.btnThanhToan.Text = "Thanh toán";
+            this.btnThanhToan.UseVisualStyleBackColor = true;
+            this.btnThanhToan.Click += new System.EventHandler(this.btnThanhToan_Click);
+            // 
+            // txtThanhToan
+            // 
+            this.txtThanhToan.Location = new System.Drawing.Point(745, 155);
+            this.txtThanhToan.Margin = new System.Windows.Forms.Padding(4);
+            this.txtThanhToan.Name = "txtThanhToan";
+            this.txtThanhToan.ReadOnly = true;
+            this.txtThanhToan.Size = new System.Drawing.Size(163, 22);
+            this.txtThanhToan.TabIndex = 26;
+            this.txtThanhToan.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "";
+            this.Column1.Name = "Column1";
             // 
             // frmSanPham
             // 
@@ -322,5 +387,10 @@
         private System.Windows.Forms.TextBox txtGiaBan;
         private System.Windows.Forms.Label lbGiaBan;
         private System.Windows.Forms.TextBox txtNgay;
+        private System.Windows.Forms.TextBox txtTongTien;
+        private System.Windows.Forms.Button btnTongTien;
+        private System.Windows.Forms.TextBox txtThanhToan;
+        private System.Windows.Forms.Button btnThanhToan;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
     }
 }
