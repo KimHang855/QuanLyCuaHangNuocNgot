@@ -87,7 +87,7 @@ namespace QuanLyCuaHangNuocNgot
             int SoLuongBan = Int32.Parse(txtSLBan.Text);
             txtSLTon.Text = (SoLuongTon - SoLuongBan).ToString();
 
-            //Sửa, cập nhật ngày
+            //Sửa, cập nhật ngày, số lượng tồn
             string sqlCapNhat = "Update SanPham Set TenSP=@TenSP, Gia=@Gia, SoLuongTon=@SoLuongTon, Ngay=@Ngay, NgayBan=@NgayBan, DonVi=@DonVi Where MaSP=@MaSP ";
             SqlCommand cmd = new SqlCommand(sqlCapNhat, connnection);
             cmd.Parameters.AddWithValue("MaSP", txtMaSP.Text);
