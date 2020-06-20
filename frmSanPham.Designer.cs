@@ -51,6 +51,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dgvSanPham = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.lbMaNCC = new System.Windows.Forms.Label();
+            this.cbMaNCC = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSanPham)).BeginInit();
@@ -132,6 +134,8 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.cbMaNCC);
+            this.panel2.Controls.Add(this.lbMaNCC);
             this.panel2.Controls.Add(this.lbGia);
             this.panel2.Controls.Add(this.txtNgay);
             this.panel2.Controls.Add(this.lbNgayBan);
@@ -276,6 +280,24 @@
             this.Column1.HeaderText = "";
             this.Column1.Name = "Column1";
             // 
+            // lbMaNCC
+            // 
+            this.lbMaNCC.AutoSize = true;
+            this.lbMaNCC.Location = new System.Drawing.Point(756, 58);
+            this.lbMaNCC.Name = "lbMaNCC";
+            this.lbMaNCC.Size = new System.Drawing.Size(59, 17);
+            this.lbMaNCC.TabIndex = 59;
+            this.lbMaNCC.Text = "Mã NCC";
+            // 
+            // cbMaNCC
+            // 
+            this.cbMaNCC.FormattingEnabled = true;
+            this.cbMaNCC.Location = new System.Drawing.Point(837, 55);
+            this.cbMaNCC.Name = "cbMaNCC";
+            this.cbMaNCC.Size = new System.Drawing.Size(151, 24);
+            this.cbMaNCC.TabIndex = 61;
+            this.cbMaNCC.SelectionChangeCommitted += new System.EventHandler(this.cbMaNCC_SelectionChangeCommitted);
+            // 
             // frmSanPham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -321,5 +343,7 @@
         private System.Windows.Forms.Label lbTenSP;
         private System.Windows.Forms.Label lbMaSP;
         private System.Windows.Forms.Label lbGia;
+        private System.Windows.Forms.Label lbMaNCC;
+        private System.Windows.Forms.ComboBox cbMaNCC;
     }
 }

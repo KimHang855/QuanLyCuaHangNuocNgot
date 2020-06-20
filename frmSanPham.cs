@@ -14,7 +14,7 @@ namespace QuanLyCuaHangNuocNgot
     public partial class frmSanPham : Form
     {
         SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-H9PGTJJ\SQLEXPRESS;Initial Catalog=NuocNgotStore_3;Integrated Security=True");
-        //SqlDataAdapter da;        
+        SqlDataAdapter da;        
 
         public frmSanPham()
         {
@@ -37,9 +37,14 @@ namespace QuanLyCuaHangNuocNgot
             SqlCommand cmd = new SqlCommand(sql, cn);
             SqlDataReader dr = cmd.ExecuteReader();
             DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da = new SqlDataAdapter(cmd);
             dt.Load(dr);
-            //hoặc da.Fill(dt);  //Đổ kết quả từ câu lệnh sql vào table            
+            //hoặc da.Fill(dt);
+            //Gán dl nguồn
+            cbMaNCC.DataSource = dt;
+            cbMaNCC.DisplayMember = "TenNCC";
+            cbMaNCC.ValueMember = "MaNCC";
+            //Đổ kết quả từ câu lệnh sql vào table            
             dgvSanPham.DataSource = dt;
         }
 
@@ -47,7 +52,7 @@ namespace QuanLyCuaHangNuocNgot
         {
             cn.Open();
                        
-            string sqlInsert = "Insert Into SanPham Values(@MaSP,@TenSP,@Gia,@SoLuongTon,@Ngay,@DonVi)";
+            string sqlInsert = "Insert Into SanPham Values(@MaSP,@TenSP,@Gia,@SoLuongTon,@Ngay,@DonVi,@MaNCC)";
             //string sqlInsert = "Insert Into Product values('"+txtMaSP.Text+"','"+txtTenSP.Text+ "','"+txtGiaBan.Text+ "','"+txtSLTon.Text+ "','"+txtSLBan.Text+"','"+txtDVT.Text+ "','"+txtMaLoai.Text+ "','"+txtNCC.Text+ "','"+txtNgayBan.Text+"')";
             SqlCommand cmd = new SqlCommand(sqlInsert,cn);
             cmd.Parameters.AddWithValue("MaSP", txtMaSP.Text);
@@ -56,6 +61,7 @@ namespace QuanLyCuaHangNuocNgot
             cmd.Parameters.AddWithValue("SoLuongTon", txtSLTon.Text);            
             cmd.Parameters.AddWithValue("Ngay", txtNgay.Text);
             cmd.Parameters.AddWithValue("DonVi", txtDVT.Text);
+            cmd.Parameters.AddWithValue("MaNCC", cbMaNCC.Text);
             cmd.ExecuteNonQuery();
             MessageBox.Show("Thêm sản phẩm thành công");
             HienThi();
@@ -76,7 +82,7 @@ namespace QuanLyCuaHangNuocNgot
         private void btnSua_Click(object sender, EventArgs e)
         {
             cn.Open();
-            string sqlUpdate = "Update SanPham Set TenSP=@TenSP, Gia=@Gia, SoLuongTon=@SoLuongTon, Ngay=@Ngay, DonVi=@DonVi Where MaSP=@MaSP ";
+            string sqlUpdate = "Update SanPham Set TenSP=@TenSP, Gia=@Gia, SoLuongTon=@SoLuongTon, Ngay=@Ngay, DonVi=@DonVi, MaNCC=@MaNCC Where MaSP=@MaSP ";
             //string sqlUpdate = "Update SanPham Set TenSP= N'" + txtTenSP.Text + "',Gia='" + txtGiaBan.Text + "',SoLuongTon='" + txtSLTon.Text + "',SoLuongBan='" + txtSLBan.Text + "',Ngay='" + txtNgay.Text + "',DonVi='" + txtDVT.Text + "' Where MaSP = '"+txtMaSP+"'";
             SqlCommand cmd = new SqlCommand(sqlUpdate, cn);
             cmd.Parameters.AddWithValue("MaSP", txtMaSP.Text);
@@ -85,6 +91,7 @@ namespace QuanLyCuaHangNuocNgot
             cmd.Parameters.AddWithValue("SoLuongTon", txtSLTon.Text);            
             cmd.Parameters.AddWithValue("Ngay", txtNgay.Text); //lỗi ngày
             cmd.Parameters.AddWithValue("DonVi", txtDVT.Text);
+            cmd.Parameters.AddWithValue("MaNCC", cbMaNCC.Text);
             cmd.ExecuteNonQuery();
             MessageBox.Show("Cập nhật thông tin sản phẩm thành công");
             HienThi();
@@ -108,6 +115,7 @@ namespace QuanLyCuaHangNuocNgot
             cmd.Parameters.AddWithValue("SoLuongTon", txtSLTon.Text);        
             cmd.Parameters.AddWithValue("Ngay", txtNgay.Text); 
             cmd.Parameters.AddWithValue("DonVi", txtDVT.Text);
+            cmd.Parameters.AddWithValue("MaNCC", cbMaNCC.Text);
             cmd.ExecuteNonQuery();
             MessageBox.Show("Xóa sản phẩm thành công");
             HienThi();
@@ -126,6 +134,7 @@ namespace QuanLyCuaHangNuocNgot
             cmd.Parameters.AddWithValue("SoLuongTon", txtSLTon.Text);
             cmd.Parameters.AddWithValue("Ngay", txtNgay.Text);
             cmd.Parameters.AddWithValue("DonVi", txtDVT.Text);
+            cmd.Parameters.AddWithValue("MaNCC", cbMaNCC.Text);
             cmd.ExecuteNonQuery();
             SqlDataReader dr = cmd.ExecuteReader();
             DataTable dt = new DataTable();
@@ -144,6 +153,7 @@ namespace QuanLyCuaHangNuocNgot
             txtDVT.Text = dgvSanPham.Rows[index].Cells["DonVi"].Value.ToString();
             txtSLTon.Text = dgvSanPham.Rows[index].Cells["SoLuongTon"].Value.ToString();
             txtNgay.Text = dgvSanPham.Rows[index].Cells["Ngay"].Value.ToString();
+            cbMaNCC.Text = dgvSanPham.Rows[index].Cells["MaNCC"].Value.ToString();
         }      
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -153,6 +163,23 @@ namespace QuanLyCuaHangNuocNgot
             txtDVT.Text = null;
             txtGiaBan.Text = null;
             txtSLTon.Text = null;
-        }      
+        }
+
+        private void cbMaNCC_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            //da = new SqlDataAdapter("Select * from SanPham Where MaNCC="+cbMaNCC.SelectedValue,cn);
+            //DataTable dt = new DataTable();
+            //da.Fill(dt);
+            //da.Dispose();
+            //dgvSanPham.DataSource = dt;
+            string sql = "Select * From SanPham Where MaNCC="+cbMaNCC;
+            SqlCommand cmd = new SqlCommand(sql, cn);
+            SqlDataReader dr = cmd.ExecuteReader();
+            DataTable dt = new DataTable();
+            da = new SqlDataAdapter(cmd);
+            dt.Load(dr);
+            dgvSanPham.DataSource = dt;
+        }
+
     }
 }
