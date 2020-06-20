@@ -67,6 +67,8 @@ namespace QuanLyCuaHangNuocNgot
                         cmd1.ExecuteNonQuery();
                         MessageBox.Show("Tạo tài khoản thành công");
                         connnection.Close();
+                        frmBanHang n3 = new frmBanHang();
+                        n3.ShowDialog();
                     }
                 }
             }
