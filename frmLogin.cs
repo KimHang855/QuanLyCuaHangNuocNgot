@@ -72,15 +72,15 @@ namespace QuanLyCuaHangNuocNgot
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            //DialogResult kq = MessageBox.Show("Bạn có muốn reset lại password ??", "Thông báo", MessageBoxButtons.YesNo);
-            //if (kq == DialogResult.Yes)
-            //{
-            //    this.Hide();
-            //    Form6 n6 = new Form6();
-            //    n6.ShowDialog();
+            DialogResult kq = MessageBox.Show("Bạn có muốn reset lại password ??", "Thông báo", MessageBoxButtons.YesNo);
+            if (kq == DialogResult.Yes)
+            {
+                this.Hide();
+                frmDoiMatKhau n6 = new frmDoiMatKhau();
+                n6.ShowDialog();
 
-            //    //string sqlReset = "Update TaiKhoan Set MatKhau ="";
-            //}
+                //string sqlReset = "Update TaiKhoan Set MatKhau ="";
+            }
         }
 
         private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
