@@ -83,14 +83,14 @@ namespace QuanLyCuaHangNuocNgot
 
         private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("Bạn thật sự muốn thoát khỏi ứng dụng ?", "Thông báo", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
-                connnection.Close();
+            //if (MessageBox.Show("Bạn thật sự muốn thoát khỏi ứng dụng ?", "Thông báo", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+            //    connnection.Close();
         }
 
         private void btExit_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn muốn thoát khỏi ứng dụng ?", "Thông báo", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
-                this.Close();
+                Application.Exit();               
         }
     }
 }
