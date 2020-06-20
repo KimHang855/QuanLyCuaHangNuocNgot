@@ -29,33 +29,28 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnClear = new System.Windows.Forms.Button();
             this.btnDong = new System.Windows.Forms.Button();
             this.btnTim = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dgvSanPham = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.txtThanhToan = new System.Windows.Forms.TextBox();
-            this.btnThanhToan = new System.Windows.Forms.Button();
-            this.txtTongTien = new System.Windows.Forms.TextBox();
-            this.btnTongTien = new System.Windows.Forms.Button();
+            this.lbGia = new System.Windows.Forms.Label();
             this.txtNgay = new System.Windows.Forms.TextBox();
             this.lbNgayBan = new System.Windows.Forms.Label();
             this.txtDVT = new System.Windows.Forms.TextBox();
-            this.txtSLBan = new System.Windows.Forms.TextBox();
             this.txtSLTon = new System.Windows.Forms.TextBox();
             this.lbDVT = new System.Windows.Forms.Label();
-            this.lbSLBan = new System.Windows.Forms.Label();
             this.lbSLTon = new System.Windows.Forms.Label();
             this.txtGiaBan = new System.Windows.Forms.TextBox();
             this.txtTenSP = new System.Windows.Forms.TextBox();
             this.txtMaSP = new System.Windows.Forms.TextBox();
             this.lbTenSP = new System.Windows.Forms.Label();
             this.lbMaSP = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dgvSanPham = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSanPham)).BeginInit();
@@ -74,6 +69,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1000, 100);
             this.panel1.TabIndex = 0;
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(624, 33);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(75, 44);
+            this.btnClear.TabIndex = 5;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnDong
             // 
@@ -127,17 +132,12 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.txtThanhToan);
-            this.panel2.Controls.Add(this.btnThanhToan);
-            this.panel2.Controls.Add(this.txtTongTien);
-            this.panel2.Controls.Add(this.btnTongTien);
+            this.panel2.Controls.Add(this.lbGia);
             this.panel2.Controls.Add(this.txtNgay);
             this.panel2.Controls.Add(this.lbNgayBan);
             this.panel2.Controls.Add(this.txtDVT);
-            this.panel2.Controls.Add(this.txtSLBan);
             this.panel2.Controls.Add(this.txtSLTon);
             this.panel2.Controls.Add(this.lbDVT);
-            this.panel2.Controls.Add(this.lbSLBan);
             this.panel2.Controls.Add(this.lbSLTon);
             this.panel2.Controls.Add(this.txtGiaBan);
             this.panel2.Controls.Add(this.txtTenSP);
@@ -150,6 +150,102 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1000, 197);
             this.panel2.TabIndex = 1;
+            // 
+            // lbGia
+            // 
+            this.lbGia.AutoSize = true;
+            this.lbGia.Location = new System.Drawing.Point(40, 146);
+            this.lbGia.Name = "lbGia";
+            this.lbGia.Size = new System.Drawing.Size(30, 17);
+            this.lbGia.TabIndex = 58;
+            this.lbGia.Text = "Giá";
+            // 
+            // txtNgay
+            // 
+            this.txtNgay.Location = new System.Drawing.Point(569, 141);
+            this.txtNgay.Name = "txtNgay";
+            this.txtNgay.Size = new System.Drawing.Size(163, 22);
+            this.txtNgay.TabIndex = 57;
+            // 
+            // lbNgayBan
+            // 
+            this.lbNgayBan.AutoSize = true;
+            this.lbNgayBan.Location = new System.Drawing.Point(436, 146);
+            this.lbNgayBan.Name = "lbNgayBan";
+            this.lbNgayBan.Size = new System.Drawing.Size(70, 17);
+            this.lbNgayBan.TabIndex = 56;
+            this.lbNgayBan.Text = "Ngày Bán";
+            // 
+            // txtDVT
+            // 
+            this.txtDVT.Location = new System.Drawing.Point(569, 98);
+            this.txtDVT.Name = "txtDVT";
+            this.txtDVT.Size = new System.Drawing.Size(163, 22);
+            this.txtDVT.TabIndex = 55;
+            // 
+            // txtSLTon
+            // 
+            this.txtSLTon.Location = new System.Drawing.Point(569, 56);
+            this.txtSLTon.Name = "txtSLTon";
+            this.txtSLTon.Size = new System.Drawing.Size(163, 22);
+            this.txtSLTon.TabIndex = 53;
+            // 
+            // lbDVT
+            // 
+            this.lbDVT.AutoSize = true;
+            this.lbDVT.Location = new System.Drawing.Point(436, 103);
+            this.lbDVT.Name = "lbDVT";
+            this.lbDVT.Size = new System.Drawing.Size(75, 17);
+            this.lbDVT.TabIndex = 52;
+            this.lbDVT.Text = "Đơn vị tính";
+            // 
+            // lbSLTon
+            // 
+            this.lbSLTon.AutoSize = true;
+            this.lbSLTon.Location = new System.Drawing.Point(384, 59);
+            this.lbSLTon.Name = "lbSLTon";
+            this.lbSLTon.Size = new System.Drawing.Size(127, 17);
+            this.lbSLTon.TabIndex = 50;
+            this.lbSLTon.Text = "Số Lượng Tồn Kho";
+            // 
+            // txtGiaBan
+            // 
+            this.txtGiaBan.Location = new System.Drawing.Point(144, 141);
+            this.txtGiaBan.Name = "txtGiaBan";
+            this.txtGiaBan.Size = new System.Drawing.Size(138, 22);
+            this.txtGiaBan.TabIndex = 49;
+            // 
+            // txtTenSP
+            // 
+            this.txtTenSP.Location = new System.Drawing.Point(144, 98);
+            this.txtTenSP.Name = "txtTenSP";
+            this.txtTenSP.Size = new System.Drawing.Size(138, 22);
+            this.txtTenSP.TabIndex = 48;
+            // 
+            // txtMaSP
+            // 
+            this.txtMaSP.Location = new System.Drawing.Point(144, 58);
+            this.txtMaSP.Name = "txtMaSP";
+            this.txtMaSP.Size = new System.Drawing.Size(138, 22);
+            this.txtMaSP.TabIndex = 47;
+            // 
+            // lbTenSP
+            // 
+            this.lbTenSP.AutoSize = true;
+            this.lbTenSP.Location = new System.Drawing.Point(36, 103);
+            this.lbTenSP.Name = "lbTenSP";
+            this.lbTenSP.Size = new System.Drawing.Size(102, 17);
+            this.lbTenSP.TabIndex = 46;
+            this.lbTenSP.Text = "Tên Sản Phẩm";
+            // 
+            // lbMaSP
+            // 
+            this.lbMaSP.AutoSize = true;
+            this.lbMaSP.Location = new System.Drawing.Point(40, 61);
+            this.lbMaSP.Name = "lbMaSP";
+            this.lbMaSP.Size = new System.Drawing.Size(96, 17);
+            this.lbMaSP.TabIndex = 45;
+            this.lbMaSP.Text = "Mã Sản Phẩm";
             // 
             // label1
             // 
@@ -179,171 +275,6 @@
             // 
             this.Column1.HeaderText = "";
             this.Column1.Name = "Column1";
-            // 
-            // btnClear
-            // 
-            this.btnClear.Location = new System.Drawing.Point(624, 33);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(75, 44);
-            this.btnClear.TabIndex = 5;
-            this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // txtThanhToan
-            // 
-            this.txtThanhToan.Location = new System.Drawing.Point(773, 151);
-            this.txtThanhToan.Margin = new System.Windows.Forms.Padding(4);
-            this.txtThanhToan.Name = "txtThanhToan";
-            this.txtThanhToan.ReadOnly = true;
-            this.txtThanhToan.Size = new System.Drawing.Size(163, 22);
-            this.txtThanhToan.TabIndex = 61;
-            this.txtThanhToan.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            
-            // 
-            // btnThanhToan
-            // 
-            this.btnThanhToan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnThanhToan.Location = new System.Drawing.Point(654, 145);
-            this.btnThanhToan.Margin = new System.Windows.Forms.Padding(4);
-            this.btnThanhToan.Name = "btnThanhToan";
-            this.btnThanhToan.Size = new System.Drawing.Size(107, 32);
-            this.btnThanhToan.TabIndex = 60;
-            this.btnThanhToan.Text = "Thanh toán";
-            this.btnThanhToan.UseVisualStyleBackColor = true;
-            
-            // 
-            // txtTongTien
-            // 
-            this.txtTongTien.Location = new System.Drawing.Point(773, 103);
-            this.txtTongTien.Margin = new System.Windows.Forms.Padding(4);
-            this.txtTongTien.Name = "txtTongTien";
-            this.txtTongTien.ReadOnly = true;
-            this.txtTongTien.Size = new System.Drawing.Size(163, 22);
-            this.txtTongTien.TabIndex = 59;
-            this.txtTongTien.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            
-            // 
-            // btnTongTien
-            // 
-            this.btnTongTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnTongTien.Location = new System.Drawing.Point(654, 99);
-            this.btnTongTien.Margin = new System.Windows.Forms.Padding(4);
-            this.btnTongTien.Name = "btnTongTien";
-            this.btnTongTien.Size = new System.Drawing.Size(107, 29);
-            this.btnTongTien.TabIndex = 58;
-            this.btnTongTien.Text = "Tổng tiền";
-            this.btnTongTien.UseVisualStyleBackColor = true;
-            
-            // 
-            // txtNgay
-            // 
-            this.txtNgay.Location = new System.Drawing.Point(773, 57);
-            this.txtNgay.Name = "txtNgay";
-            this.txtNgay.ReadOnly = true;
-            this.txtNgay.Size = new System.Drawing.Size(163, 22);
-            this.txtNgay.TabIndex = 57;
-            // 
-            // lbNgayBan
-            // 
-            this.lbNgayBan.AutoSize = true;
-            this.lbNgayBan.Location = new System.Drawing.Point(666, 57);
-            this.lbNgayBan.Name = "lbNgayBan";
-            this.lbNgayBan.Size = new System.Drawing.Size(70, 17);
-            this.lbNgayBan.TabIndex = 56;
-            this.lbNgayBan.Text = "Ngày Bán";
-            // 
-            // txtDVT
-            // 
-            this.txtDVT.Location = new System.Drawing.Point(477, 139);
-            this.txtDVT.Name = "txtDVT";
-            this.txtDVT.ReadOnly = true;
-            this.txtDVT.Size = new System.Drawing.Size(130, 22);
-            this.txtDVT.TabIndex = 55;
-            // 
-            // txtSLBan
-            // 
-            this.txtSLBan.Location = new System.Drawing.Point(477, 98);
-            this.txtSLBan.Name = "txtSLBan";
-            this.txtSLBan.Size = new System.Drawing.Size(130, 22);
-            this.txtSLBan.TabIndex = 54;
-            // 
-            // txtSLTon
-            // 
-            this.txtSLTon.Location = new System.Drawing.Point(477, 58);
-            this.txtSLTon.Name = "txtSLTon";
-            this.txtSLTon.ReadOnly = true;
-            this.txtSLTon.Size = new System.Drawing.Size(130, 22);
-            this.txtSLTon.TabIndex = 53;
-            // 
-            // lbDVT
-            // 
-            this.lbDVT.AutoSize = true;
-            this.lbDVT.Location = new System.Drawing.Point(334, 142);
-            this.lbDVT.Name = "lbDVT";
-            this.lbDVT.Size = new System.Drawing.Size(75, 17);
-            this.lbDVT.TabIndex = 52;
-            this.lbDVT.Text = "Đơn vị tính";
-            // 
-            // lbSLBan
-            // 
-            this.lbSLBan.AutoSize = true;
-            this.lbSLBan.Location = new System.Drawing.Point(332, 101);
-            this.lbSLBan.Name = "lbSLBan";
-            this.lbSLBan.Size = new System.Drawing.Size(98, 17);
-            this.lbSLBan.TabIndex = 51;
-            this.lbSLBan.Text = "Số Lượng Bán";
-            // 
-            // lbSLTon
-            // 
-            this.lbSLTon.AutoSize = true;
-            this.lbSLTon.Location = new System.Drawing.Point(332, 58);
-            this.lbSLTon.Name = "lbSLTon";
-            this.lbSLTon.Size = new System.Drawing.Size(127, 17);
-            this.lbSLTon.TabIndex = 50;
-            this.lbSLTon.Text = "Số Lượng Tồn Kho";
-            // 
-            // txtGiaBan
-            // 
-            this.txtGiaBan.Location = new System.Drawing.Point(144, 141);
-            this.txtGiaBan.Name = "txtGiaBan";
-            this.txtGiaBan.ReadOnly = true;
-            this.txtGiaBan.Size = new System.Drawing.Size(138, 22);
-            this.txtGiaBan.TabIndex = 49;
-            // 
-            // txtTenSP
-            // 
-            this.txtTenSP.Location = new System.Drawing.Point(144, 98);
-            this.txtTenSP.Name = "txtTenSP";
-            this.txtTenSP.ReadOnly = true;
-            this.txtTenSP.Size = new System.Drawing.Size(138, 22);
-            this.txtTenSP.TabIndex = 48;
-            // 
-            // txtMaSP
-            // 
-            this.txtMaSP.Location = new System.Drawing.Point(144, 58);
-            this.txtMaSP.Name = "txtMaSP";
-            this.txtMaSP.ReadOnly = true;
-            this.txtMaSP.Size = new System.Drawing.Size(138, 22);
-            this.txtMaSP.TabIndex = 47;
-            // 
-            // lbTenSP
-            // 
-            this.lbTenSP.AutoSize = true;
-            this.lbTenSP.Location = new System.Drawing.Point(36, 103);
-            this.lbTenSP.Name = "lbTenSP";
-            this.lbTenSP.Size = new System.Drawing.Size(102, 17);
-            this.lbTenSP.TabIndex = 46;
-            this.lbTenSP.Text = "Tên Sản Phẩm";
-            // 
-            // lbMaSP
-            // 
-            this.lbMaSP.AutoSize = true;
-            this.lbMaSP.Location = new System.Drawing.Point(40, 61);
-            this.lbMaSP.Name = "lbMaSP";
-            this.lbMaSP.Size = new System.Drawing.Size(96, 17);
-            this.lbMaSP.TabIndex = 45;
-            this.lbMaSP.Text = "Mã Sản Phẩm";
             // 
             // frmSanPham
             // 
@@ -378,22 +309,17 @@
         private System.Windows.Forms.DataGridView dgvSanPham;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
         private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.TextBox txtThanhToan;
-        private System.Windows.Forms.Button btnThanhToan;
-        private System.Windows.Forms.TextBox txtTongTien;
-        private System.Windows.Forms.Button btnTongTien;
         private System.Windows.Forms.TextBox txtNgay;
         private System.Windows.Forms.Label lbNgayBan;
         private System.Windows.Forms.TextBox txtDVT;
-        private System.Windows.Forms.TextBox txtSLBan;
         private System.Windows.Forms.TextBox txtSLTon;
         private System.Windows.Forms.Label lbDVT;
-        private System.Windows.Forms.Label lbSLBan;
         private System.Windows.Forms.Label lbSLTon;
         private System.Windows.Forms.TextBox txtGiaBan;
         private System.Windows.Forms.TextBox txtTenSP;
         private System.Windows.Forms.TextBox txtMaSP;
         private System.Windows.Forms.Label lbTenSP;
         private System.Windows.Forms.Label lbMaSP;
+        private System.Windows.Forms.Label lbGia;
     }
 }

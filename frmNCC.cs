@@ -166,5 +166,15 @@ namespace QuanLyCuaHangNuocNgot
                 Application.Exit();
             }
         }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtMaNCC.Text = null;
+            txtTenNCC.Text = null;
+            txtSLMua.Text = null;
+            txtGia.Text = null;
+            txtDiaChi.Text = null;
+            txtGC.Text = null;
+        }
     }
 }

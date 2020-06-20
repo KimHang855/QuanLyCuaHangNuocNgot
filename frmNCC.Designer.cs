@@ -51,6 +51,7 @@
             this.btnTim = new System.Windows.Forms.Button();
             this.btnThanhToan = new System.Windows.Forms.Button();
             this.txtThanhToan = new System.Windows.Forms.TextBox();
+            this.btnClear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNCC)).BeginInit();
             this.SuspendLayout();
             // 
@@ -193,7 +194,7 @@
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(532, 454);
+            this.btnXoa.Location = new System.Drawing.Point(496, 454);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(75, 48);
             this.btnXoa.TabIndex = 16;
@@ -203,7 +204,7 @@
             // 
             // btnDong
             // 
-            this.btnDong.Location = new System.Drawing.Point(710, 454);
+            this.btnDong.Location = new System.Drawing.Point(747, 454);
             this.btnDong.Name = "btnDong";
             this.btnDong.Size = new System.Drawing.Size(75, 48);
             this.btnDong.TabIndex = 17;
@@ -255,11 +256,22 @@
             this.txtThanhToan.Size = new System.Drawing.Size(104, 22);
             this.txtThanhToan.TabIndex = 22;
             // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(629, 454);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(82, 48);
+            this.btnClear.TabIndex = 23;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
             // frmNCC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(875, 528);
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.txtThanhToan);
             this.Controls.Add(this.btnThanhToan);
             this.Controls.Add(this.btnTim);
@@ -317,5 +329,6 @@
         private System.Windows.Forms.Button btnTim;
         private System.Windows.Forms.Button btnThanhToan;
         private System.Windows.Forms.TextBox txtThanhToan;
+        private System.Windows.Forms.Button btnClear;
     }
 }

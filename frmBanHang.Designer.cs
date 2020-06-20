@@ -50,6 +50,7 @@
             this.dgvBanHang = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnThoat = new System.Windows.Forms.Button();
+            this.lbGia = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBanHang)).BeginInit();
             this.SuspendLayout();
             // 
@@ -256,11 +257,21 @@
             this.btnThoat.UseVisualStyleBackColor = true;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
+            // lbGia
+            // 
+            this.lbGia.AutoSize = true;
+            this.lbGia.Location = new System.Drawing.Point(97, 150);
+            this.lbGia.Name = "lbGia";
+            this.lbGia.Size = new System.Drawing.Size(30, 17);
+            this.lbGia.TabIndex = 59;
+            this.lbGia.Text = "Giá";
+            // 
             // frmBanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1168, 566);
+            this.Controls.Add(this.lbGia);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.dgvBanHang);
             this.Controls.Add(this.label1);
@@ -315,5 +326,6 @@
         private System.Windows.Forms.DataGridView dgvBanHang;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
         private System.Windows.Forms.Button btnThoat;
+        private System.Windows.Forms.Label lbGia;
     }
 }

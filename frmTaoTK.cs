@@ -38,15 +38,15 @@ namespace QuanLyCuaHangNuocNgot
 
         private void btTao_Click(object sender, EventArgs e)
         {
-            SqlConnection connnection = new SqlConnection(@"Data Source=LAPTOP-EFEOHQTE\SQLEXPRESS;Initial Catalog=QuanLyCuaHang1;Integrated Security=True");
-
+            SqlConnection connnection = new SqlConnection(@"Data Source=DESKTOP-H9PGTJJ\SQLEXPRESS;Initial Catalog=NuocNgotStore_3;Integrated Security=True");
+            connnection.Open();
             if ((string.IsNullOrEmpty(txtTenDangNhap.Text)) || (string.IsNullOrEmpty(txtMatKhau.Text)))
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin ", "Thông báo");
             }
             if (txtTenDangNhap.Text != null && txtMatKhau.Text != null)
             {
-                connnection.Open();
+                //connnection.Open();
                 string sqlTen = "Select TenTaiKhoan From TaiKhoan Where TenTaiKhoan='" + txtTenDangNhap.Text + "'";
                 SqlCommand cmd = new SqlCommand(sqlTen, connnection);
                 SqlDataReader dr = cmd.ExecuteReader();
