@@ -172,9 +172,9 @@
             this.lbNgayBan.AutoSize = true;
             this.lbNgayBan.Location = new System.Drawing.Point(436, 146);
             this.lbNgayBan.Name = "lbNgayBan";
-            this.lbNgayBan.Size = new System.Drawing.Size(70, 17);
+            this.lbNgayBan.Size = new System.Drawing.Size(79, 17);
             this.lbNgayBan.TabIndex = 56;
-            this.lbNgayBan.Text = "Ngày Bán";
+            this.lbNgayBan.Text = "Ngày Nhập";
             // 
             // txtDVT
             // 

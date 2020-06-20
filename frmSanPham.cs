@@ -156,8 +156,6 @@ namespace QuanLyCuaHangNuocNgot
             txtDVT.Text = null;
             txtGiaBan.Text = null;
             txtSLTon.Text = null;
-        }
-
-       
+        }      
     }
 }
