@@ -76,7 +76,26 @@ namespace QuanLyCuaHangNuocNgot
             txtGiaBan.Text = dgvBanHang.Rows[index].Cells["Gia"].Value.ToString();
             txtDVT.Text = dgvBanHang.Rows[index].Cells["DonVi"].Value.ToString();
             txtSLTon.Text = dgvBanHang.Rows[index].Cells["SoLuongTon"].Value.ToString();
-            txtNgay.Text = dgvBanHang.Rows[index].Cells["Ngay"].Value.ToString();
+            txtNgayBan.Text = dgvBanHang.Rows[index].Cells["Ngay"].Value.ToString();
+        }
+
+        private void btnCapNhat_Click(object sender, EventArgs e)
+        {
+            connnection.Open();
+            string sqlCapNhat = "Update SanPham Set TenSP=@TenSP, Gia=@Gia, SoLuongTon=@SoLuongTon, Ngay=@Ngay, NgayBan=@NgayBan, DonVi=@DonVi Where MaSP=@MaSP ";
+            SqlCommand cmd = new SqlCommand(sqlCapNhat, connnection);
+            cmd.Parameters.AddWithValue("MaSP", txtMaSP.Text);
+            cmd.Parameters.AddWithValue("TenSP", txtTenSP.Text);
+            cmd.Parameters.AddWithValue("Gia", txtGiaBan.Text);
+            cmd.Parameters.AddWithValue("SoLuongTon", txtSLTon.Text);
+            cmd.Parameters.AddWithValue("Ngay", txtNgayBan.Text);
+            cmd.Parameters.AddWithValue("NgayBan", txtNgayBan.Text);
+            cmd.Parameters.AddWithValue("DonVi", txtDVT.Text);
+            cmd.ExecuteNonQuery();
+            //MessageBox.Show("Cập nhật thông tin sản phẩm thành công");
+            HienThi();
+            
+            connnection.Close();
         }
     }
 }

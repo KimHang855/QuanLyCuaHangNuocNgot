@@ -32,7 +32,7 @@
             this.btnThanhToan = new System.Windows.Forms.Button();
             this.txtTongTien = new System.Windows.Forms.TextBox();
             this.btnTongTien = new System.Windows.Forms.Button();
-            this.txtNgay = new System.Windows.Forms.TextBox();
+            this.txtNgayBan = new System.Windows.Forms.TextBox();
             this.lbNgayBan = new System.Windows.Forms.Label();
             this.txtDVT = new System.Windows.Forms.TextBox();
             this.txtSLBan = new System.Windows.Forms.TextBox();
@@ -51,6 +51,7 @@
             this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnThoat = new System.Windows.Forms.Button();
             this.lbGia = new System.Windows.Forms.Label();
+            this.btnCapNhat = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBanHang)).BeginInit();
             this.SuspendLayout();
             // 
@@ -98,13 +99,12 @@
             this.btnTongTien.UseVisualStyleBackColor = true;
             this.btnTongTien.Click += new System.EventHandler(this.btnTongTien_Click);
             // 
-            // txtNgay
+            // txtNgayBan
             // 
-            this.txtNgay.Location = new System.Drawing.Point(830, 65);
-            this.txtNgay.Name = "txtNgay";
-            this.txtNgay.ReadOnly = true;
-            this.txtNgay.Size = new System.Drawing.Size(163, 22);
-            this.txtNgay.TabIndex = 40;
+            this.txtNgayBan.Location = new System.Drawing.Point(830, 65);
+            this.txtNgayBan.Name = "txtNgayBan";
+            this.txtNgayBan.Size = new System.Drawing.Size(163, 22);
+            this.txtNgayBan.TabIndex = 40;
             // 
             // lbNgayBan
             // 
@@ -248,7 +248,7 @@
             // btnThoat
             // 
             this.btnThoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnThoat.Location = new System.Drawing.Point(1035, 104);
+            this.btnThoat.Location = new System.Drawing.Point(1035, 133);
             this.btnThoat.Margin = new System.Windows.Forms.Padding(4);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(107, 32);
@@ -266,11 +266,24 @@
             this.lbGia.TabIndex = 59;
             this.lbGia.Text = "Giá";
             // 
+            // btnCapNhat
+            // 
+            this.btnCapNhat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnCapNhat.Location = new System.Drawing.Point(1035, 75);
+            this.btnCapNhat.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCapNhat.Name = "btnCapNhat";
+            this.btnCapNhat.Size = new System.Drawing.Size(107, 32);
+            this.btnCapNhat.TabIndex = 60;
+            this.btnCapNhat.Text = "Cập nhật";
+            this.btnCapNhat.UseVisualStyleBackColor = true;
+            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
+            // 
             // frmBanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1168, 566);
+            this.Controls.Add(this.btnCapNhat);
             this.Controls.Add(this.lbGia);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.dgvBanHang);
@@ -279,7 +292,7 @@
             this.Controls.Add(this.btnThanhToan);
             this.Controls.Add(this.txtTongTien);
             this.Controls.Add(this.btnTongTien);
-            this.Controls.Add(this.txtNgay);
+            this.Controls.Add(this.txtNgayBan);
             this.Controls.Add(this.lbNgayBan);
             this.Controls.Add(this.txtDVT);
             this.Controls.Add(this.txtSLBan);
@@ -308,7 +321,7 @@
         private System.Windows.Forms.Button btnThanhToan;
         private System.Windows.Forms.TextBox txtTongTien;
         private System.Windows.Forms.Button btnTongTien;
-        private System.Windows.Forms.TextBox txtNgay;
+        private System.Windows.Forms.TextBox txtNgayBan;
         private System.Windows.Forms.Label lbNgayBan;
         private System.Windows.Forms.TextBox txtDVT;
         private System.Windows.Forms.TextBox txtSLBan;
@@ -327,5 +340,6 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Label lbGia;
+        private System.Windows.Forms.Button btnCapNhat;
     }
 }
