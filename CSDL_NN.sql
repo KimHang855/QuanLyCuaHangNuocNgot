@@ -1,81 +1,61 @@
-﻿IF DB_ID('NuocNgotStore') IS NULL 
-	CREATE DATABASE NuocNgotStore
+﻿IF DB_ID('NuocNgotStore_3') IS NULL 
+	CREATE DATABASE NuocNgotStore_3
 GO
 
-USE NuocNgotStore
+USE NuocNgotStore_3
 GO
 
 
-CREATE TABLE [dbo].[Users](
-	[UserName] [varchar](50) NOT NULL,
-	[Password] [varchar](50) NOT NULL, 
-	[Type] [int] NOT NULL,
-	PRIMARY KEY (UserName)	
+CREATE TABLE [dbo].[TaiKhoan](
+	[TenTK] [varchar](50) NOT NULL,
+	[MatKhau] [varchar](50) NOT NULL,
+	PRIMARY KEY (TenTK)	
 	)
 GO
 
 
-INSERT INTO [dbo].[Users] ([UserName], [Password], [Type]) VALUES 
-	('admin', '135', 1),
-	('user1', '246', 2)
+INSERT INTO [dbo].[TaiKhoan] ([TenTK], [MatKhau]) VALUES 
+	('admin', '123'),
+	('user1', '456')
 GO
 
 
-CREATE TABLE [dbo].[Supplier](
-	[id] [varchar](20) NOT NULL,
-	[name] [nvarchar](100) NOT NULL, 
-	[address] [nvarchar](200)  NOT NULL,
-	PRIMARY KEY (id)	
+CREATE TABLE [dbo].[NCC](
+	[MaNCC] [nvarchar](50) NOT NULL,
+	[TenNCC] [nvarchar](100) NULL,
+	[SoLuongMua] [float] NULL,
+	[Gia] [float] NULL,
+	[DiaChi] [nvarchar](100) NULL,
+	[GhiChu] [nvarchar](100) NULL,
+	PRIMARY KEY (MaNCC)	
 	)
 GO
 
 
-CREATE TABLE [dbo].[ProductCategory](
-	[id] [int] IDENTITY(1,1),
-	[name] [nvarchar](100) NOT NULL, 	
-	PRIMARY KEY (id)	
+CREATE TABLE [dbo].[SanPham](
+	[MaSP] [nvarchar](10) NOT NULL,
+	[TenSP] [nvarchar](100) NOT NULL,
+	[Gia] [float] NOT NULL,
+	[SoLuongTon] [float] NOT NULL,
+	[SoLuongBan] [float] NOT NULL,
+	[Ngay] [date] NOT NULL,
+	[DonVi] [nvarchar](100) NOT NULL,
+	PRIMARY KEY (MaSP)	
 	)
 GO
 
 
-CREATE TABLE [dbo].[Product](
-	[id] [varchar](10) NOT NULL,
-	[name] [nvarchar](100) NOT NULL, 
-	[purchasePrice] [float]  NOT NULL DEFAULT 0, 
-	[sellingPrice] [float]  NOT NULL DEFAULT 0, 
-	[categoryId][int]NOT NULL,	
-	[supplierId][varchar](20) NOT NULL,
-	PRIMARY KEY (id)	
-	)
+
+INSERT INTO [dbo].[NCC] ([MaNCC],[TenNCC],[SoLuongMua],[Gia],[DiaChi],[GhiChu]) VALUES 
+	('CocaCola', N'CocaCola Vietnam',600,7000 N'485 Xa lộ Hà Nội, Phường Linh Trung, Quận Thủ Đức, tp. HCM '),
+	('Lavie', N'Huỳnh Phát Lavie',400,4000, N'72/23/11 Đường Số 30, Phường 6, Q. Gò Vấp, HCM '),
+	('BiaSaiGon', N'Tổng công Ty cổ phần Bia-Rượu-Giải Khát Sài Gòn',500,20000, N'187 Nguyễn Chí Thanh, Phường 12, Quận 5, TP HCM ')
 GO
 
-
-ALTER TABLE Product ADD CONSTRAINT FK_SUPPLIER_PRODUCT FOREIGN KEY (supplierId) REFERENCES Supplier(id)
-ALTER TABLE Product ADD CONSTRAINT FK_PRODUCTCATEGORY_PRODUCT FOREIGN KEY (categoryId) REFERENCES ProductCategory(id)
-
-
-
-INSERT INTO [dbo].[ProductCategory] ([name]) VALUES 
-	(N'Nước ngọt'),
-	(N'Nước khoáng, nước tinh khiết'),
-	(N'Thức uống bổ dưỡng'),
-	(N'Cà phê'),
-	(N'Trà'),
-	(N'Nước trái cây'),
-	(N'Bia')
-GO
-
-
-INSERT INTO [dbo].[Supplier] ([id], [name], [address]) VALUES 
-	('CocaCola', N'CocaCola Vietnam', N'485 Xa lộ Hà Nội, Phường Linh Trung, Quận Thủ Đức, tp. HCM '),
-	('Lavie', N'Huỳnh Phát Lavie', N'72/23/11 Đường Số 30, Phường 6, Q. Gò Vấp, HCM '),
-	('BiaSaiGon', N'Tổng công Ty cổ phần Bia-Rượu-Giải Khát Sài Gòn', N'187 Nguyễn Chí Thanh, Phường 12, Quận 5, TP HCM ')
-GO
-
-INSERT INTO [dbo].[Product] ([id], [name], [sellingPrice], [purchasePrice], [categoryId], [supplierId]) VALUES 
-	('CocaCola', N'Coca-Cola', 8000, 10000, 1, 'CocaCola'),
-	('Sprite', N'Nước ngọt Sprite', 8000, 10000, 1, 'CocaCola'),
-	('Sabeco', N'Bia Sabeco', 15000 , 30000, 3, 'BiaSaiGon'),
-	('Aquafina', N'Nước khoáng Aquafina', 3000, 5000, 2, 'Lavie')
+INSERT INTO [dbo].[Product] ([MaSP], [TenSP], [Gia], [SoLuongTon], [SoLuongBan], [Ngay], [DonVi]) VALUES 
+	('CocaCola', N'Coca-Cola', 10000, 59, 40, '10/10/2019', 'chai'),
+	('Sprite', N'Nước ngọt Sprite', 10000, 49, 45, '11/11/2019', 'chai'),
+	('Sabeco', N'Bia Sabeco', 30000, 78, 70, '12/12/2019', 'chai'),
+	('Aquafina', N'Nước khoáng Aquafina', 5000, 55, 45, '09/09/2019', 'chai')
 GO
 
