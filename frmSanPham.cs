@@ -43,8 +43,6 @@ namespace QuanLyCuaHangNuocNgot
             dgvSanPham.DataSource = dt;
         }
 
-        
-
         private void btnThem_Click(object sender, EventArgs e)
         {
             cn.Open();
@@ -107,8 +105,7 @@ namespace QuanLyCuaHangNuocNgot
             cmd.Parameters.AddWithValue("MaSP", txtMaSP.Text);
             cmd.Parameters.AddWithValue("TenSP", txtTenSP.Text);
             cmd.Parameters.AddWithValue("Gia", txtGiaBan.Text);
-            cmd.Parameters.AddWithValue("SoLuongTon", txtSLTon.Text);
-            
+            cmd.Parameters.AddWithValue("SoLuongTon", txtSLTon.Text);        
             cmd.Parameters.AddWithValue("Ngay", txtNgay.Text); 
             cmd.Parameters.AddWithValue("DonVi", txtDVT.Text);
             cmd.ExecuteNonQuery();
