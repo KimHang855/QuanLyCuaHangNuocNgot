@@ -174,5 +174,17 @@ namespace QuanLyCuaHangNuocNgot
                 Application.Exit();
             }
         }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtMaSP.Text = null;
+            txtTenSP.Text = null;
+            txtDVT.Text = null;
+            txtGiaBan.Text = null;
+            txtSLTon.Text = null;
+            txtSLBan.Text = null;
+
+        }
+        
     }
 }
