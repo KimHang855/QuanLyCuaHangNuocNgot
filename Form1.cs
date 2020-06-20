@@ -19,8 +19,26 @@ namespace QuanLyCuaHangNuocNgot
 
         private void quảnLýSảnPhẩmToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmSanPham frmSanPham = new frmSanPham();
-            frmSanPham.ShowDialog();
+            frmSanPham frmSanPham = new frmSanPham(); //Khởi tạo đối tượng
+            frmSanPham.ShowDialog(); //Hiển thị
+        }       
+
+        private void mnuNCC_Click(object sender, EventArgs e)
+        {
+            frmNCC frmNCC = new frmNCC();
+            frmNCC.ShowDialog();
+        }
+
+        private void mnuDT_Click(object sender, EventArgs e)
+        {
+            frmDThu frmDThu = new frmDThu();
+            frmDThu.ShowDialog();
+        }
+
+        private void mnuThoat_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn muốn thoát khỏi ứng dụng ?", "Thông báo", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                Application.Exit();
         }
     }
 }
