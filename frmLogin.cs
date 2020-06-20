@@ -18,11 +18,7 @@ namespace QuanLyCuaHangNuocNgot
             InitializeComponent();
         }
         SqlConnection connnection = new SqlConnection(@"Data Source=DESKTOP-H9PGTJJ\SQLEXPRESS;Initial Catalog=NuocNgotStore_3;Integrated Security=True");
-        private void frmLogin_Load(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Hide();
@@ -51,6 +47,9 @@ namespace QuanLyCuaHangNuocNgot
                 else
                 {
                     MessageBox.Show("Đăng nhập thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //hiện lại bảng login để nhập lại
+                    frmLogin t = new frmLogin();
+                    t.Show();
                 }
                 connnection.Close();
                 // dùng cho câu lệnh insert, update
@@ -76,21 +75,19 @@ namespace QuanLyCuaHangNuocNgot
                 this.Hide();
                 frmDoiMatKhau n6 = new frmDoiMatKhau();
                 n6.ShowDialog();
-
                 //string sqlReset = "Update TaiKhoan Set MatKhau ="";
             }
         }
 
         private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //if (MessageBox.Show("Bạn thật sự muốn thoát khỏi ứng dụng ?", "Thông báo", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
-            //    connnection.Close();
+            connnection.Close();
         }
 
         private void btExit_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn muốn thoát khỏi ứng dụng ?", "Thông báo", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
-                Application.Exit();               
+                Application.Exit();                
         }
     }
 }
