@@ -43,11 +43,12 @@
             // lbLogin
             // 
             this.lbLogin.AutoSize = true;
-            this.lbLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.lbLogin.Location = new System.Drawing.Point(188, 37);
+            this.lbLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
+            this.lbLogin.ForeColor = System.Drawing.Color.Red;
+            this.lbLogin.Location = new System.Drawing.Point(188, 46);
             this.lbLogin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbLogin.Name = "lbLogin";
-            this.lbLogin.Size = new System.Drawing.Size(162, 29);
+            this.lbLogin.Size = new System.Drawing.Size(171, 29);
             this.lbLogin.TabIndex = 10;
             this.lbLogin.Text = "ĐĂNG NHẬP";
             // 

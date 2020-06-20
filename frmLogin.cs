@@ -17,7 +17,7 @@ namespace QuanLyCuaHangNuocNgot
         {
             InitializeComponent();
         }
-
+        SqlConnection connnection = new SqlConnection(@"Data Source=DESKTOP-H9PGTJJ\SQLEXPRESS;Initial Catalog=NuocNgotStore_3;Integrated Security=True");
         private void frmLogin_Load(object sender, EventArgs e)
         {
 
@@ -31,11 +31,9 @@ namespace QuanLyCuaHangNuocNgot
         }
 
         private void btLogIn_Click(object sender, EventArgs e)
-        {
-            SqlConnection connnection = new SqlConnection(@"Data Source=DESKTOP-H9PGTJJ\SQLEXPRESS;Initial Catalog=NuocNgotStore_3;Integrated Security=True");
+        {            
             try
             {
-
                 connnection.Open();
                 string tk = txtUsername.Text;
                 string mk = txtPassword.Text;
@@ -72,7 +70,7 @@ namespace QuanLyCuaHangNuocNgot
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            DialogResult kq = MessageBox.Show("Bạn có muốn reset lại password ??", "Thông báo", MessageBoxButtons.YesNo);
+            DialogResult kq = MessageBox.Show("Bạn có muốn reset lại password?", "Thông báo", MessageBoxButtons.YesNo);
             if (kq == DialogResult.Yes)
             {
                 this.Hide();
@@ -85,14 +83,14 @@ namespace QuanLyCuaHangNuocNgot
 
         private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
-        //    if (MessageBox.Show("Bạn muốn thoát khỏi ứng dụng ?", "Thông báo", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
-        //        Application.Exit();
+            if (MessageBox.Show("Bạn thật sự muốn thoát khỏi ứng dụng ?", "Thông báo", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                connnection.Close();
         }
 
         private void btExit_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn muốn thoát khỏi ứng dụng ?", "Thông báo", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
-                Application.Exit();
+                this.Close();
         }
     }
 }
