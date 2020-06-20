@@ -14,7 +14,7 @@ namespace QuanLyCuaHangNuocNgot
     public partial class frmSanPham : Form
     {
         SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-H9PGTJJ\SQLEXPRESS;Initial Catalog=NuocNgotStore_3;Integrated Security=True");
-        SqlDataAdapter da;        
+        //SqlDataAdapter da;        
 
         public frmSanPham()
         {
