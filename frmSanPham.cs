@@ -13,19 +13,141 @@ namespace QuanLyCuaHangNuocNgot
 {
     public partial class frmSanPham : Form
     {
+        SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-H9PGTJJ\SQLEXPRESS;Initial Catalog=NuocNgotStore_3;Integrated Security=True");
+        //SqlDataAdapter da;        
+
         public frmSanPham()
         {
             InitializeComponent();
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void frmSanPham_Load(object sender, EventArgs e)
         {
-
+            cn.Open();
+            HienThi();
+            cn.Close();
+        }
+        private void frmSanPham_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            cn.Close();
+        }
+        public void HienThi()
+        {            
+            string sql = "Select * From SanPham";            
+            SqlCommand cmd = new SqlCommand(sql, cn);
+            SqlDataReader dr = cmd.ExecuteReader();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            dt.Load(dr);
+            //hoặc da.Fill(dt);  //Đổ kết quả từ câu lệnh sql vào table            
+            dgvSanPham.DataSource = dt;
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
+        
 
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            //cn.Open();
+                       
+            string sqlInsert = "Insert Into SanPham Values(@MaSP,@TenSP,@Gia,@SoLuongTon,@SoLuongBan,@Ngay,@DonVi)";
+            //string sqlInsert = "Insert Into Product values('"+txtMaSP.Text+"','"+txtTenSP.Text+ "','"+txtGiaBan.Text+ "','"+txtSLTon.Text+ "','"+txtSLBan.Text+"','"+txtDVT.Text+ "','"+txtMaLoai.Text+ "','"+txtNCC.Text+ "','"+txtNgayBan.Text+"')";
+            SqlCommand cmd = new SqlCommand(sqlInsert,cn);
+            cmd.Parameters.AddWithValue("MaSP", txtMaSP.Text);
+            cmd.Parameters.AddWithValue("TenSP", txtTenSP.Text);
+            cmd.Parameters.AddWithValue("Gia", txtGiaBan.Text);
+            cmd.Parameters.AddWithValue("SoLuongTon", txtSLTon.Text);
+            cmd.Parameters.AddWithValue("SoLuongBan", txtSLBan.Text);
+            cmd.Parameters.AddWithValue("Ngay", txtNgay.Text);
+            cmd.Parameters.AddWithValue("DonVi", txtDVT.Text);
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Thêm sản phẩm thành công");
+            HienThi();
+            ResetValues();
+            //cn.Close();
+        }
+
+        private void ResetValues()
+        {
+            txtMaSP.Text = "";
+            txtTenSP.Text = "";
+            txtGiaBan.Text = "";
+            txtSLTon.Text = "";
+            txtSLBan.Text = "";
+            txtDVT.Text = "";
+            txtNgay.Text = "";
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            cn.Open();
+            string sqlUpdate = "Update SanPham Set TenSP=@TenSP, Gia=@Gia, SoLuongTon=@SoLuongTon, SoLuongBan=@SoLuongBan,/* Ngay=@Ngay,*/ DonVi=@DonVi Where MaSP=@MaSP ";
+            //string sqlUpdate = "Update SanPham Set TenSP= N'" + txtTenSP.Text + "',Gia='" + txtGiaBan.Text + "',SoLuongTon='" + txtSLTon.Text + "',SoLuongBan='" + txtSLBan.Text + "',Ngay='" + txtNgay.Text + "',DonVi='" + txtDVT.Text + "' Where MaSP = '"+txtMaSP+"'";
+            SqlCommand cmd = new SqlCommand(sqlUpdate, cn);
+            cmd.Parameters.AddWithValue("MaSP", txtMaSP.Text);
+            cmd.Parameters.AddWithValue("TenSP", txtTenSP.Text);
+            cmd.Parameters.AddWithValue("Gia", txtGiaBan.Text);
+            cmd.Parameters.AddWithValue("SoLuongTon", txtSLTon.Text);
+            cmd.Parameters.AddWithValue("SoLuongBan", txtSLBan.Text);
+            //cmd.Parameters.AddWithValue("Ngay", txtNgay.Text); //lỗi ngày
+            cmd.Parameters.AddWithValue("DonVi", txtDVT.Text);
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Cập nhật thông tin sản phẩm thành công");
+            HienThi();
+            ResetValues();
+            //cn.Close();
+        }
+        private void btnDong_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn muốn thoát khỏi ứng dụng ?", "Thông báo", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                this.Close();
+        }      
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            string sqlDelete = "Delete From SanPham Where MaSP = @MaSP";
+            SqlCommand cmd = new SqlCommand(sqlDelete, cn);
+            cmd.Parameters.AddWithValue("MaSP", txtMaSP.Text);
+            cmd.Parameters.AddWithValue("TenSP", txtTenSP.Text);
+            cmd.Parameters.AddWithValue("Gia", txtGiaBan.Text);
+            cmd.Parameters.AddWithValue("SoLuongTon", txtSLTon.Text);
+            cmd.Parameters.AddWithValue("SoLuongBan", txtSLBan.Text);
+            cmd.Parameters.AddWithValue("Ngay", txtNgay.Text); 
+            cmd.Parameters.AddWithValue("DonVi", txtDVT.Text);
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Xóa sản phẩm thành công");
+            HienThi();
+            ResetValues();
+        }
+
+        private void btnTim_Click(object sender, EventArgs e)
+        {
+            string sqlSearch = "Select * From SanPham Where TenSP =@TenSP or MaSP=@MaSP ";
+            SqlCommand cmd = new SqlCommand(sqlSearch, cn);
+            cmd.Parameters.AddWithValue("MaSP", txtMaSP.Text);
+            cmd.Parameters.AddWithValue("TenSP", txtTenSP.Text);
+            cmd.Parameters.AddWithValue("Gia", txtGiaBan.Text);
+            cmd.Parameters.AddWithValue("SoLuongTon", txtSLTon.Text);
+            cmd.Parameters.AddWithValue("SoLuongBan", txtSLBan.Text);
+            cmd.Parameters.AddWithValue("Ngay", txtNgay.Text);
+            cmd.Parameters.AddWithValue("DonVi", txtDVT.Text);
+            cmd.ExecuteNonQuery();
+            SqlDataReader dr = cmd.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(dr);                    
+            dgvSanPham.DataSource = dt;            
+        }
+
+        private void dgvSanPham_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //hiện thị dl trong dgv lên textbox
+            int i;
+            i = dgvSanPham.CurrentCell.RowIndex;
+            txtMaSP.Text = dgvSanPham.Rows[i].Cells[0].Value.ToString();
+            txtTenSP.Text = dgvSanPham.Rows[i].Cells[1].Value.ToString();
+            txtGiaBan.Text = dgvSanPham.Rows[i].Cells[2].Value.ToString();
+            txtSLTon.Text = dgvSanPham.Rows[i].Cells[3].Value.ToString();
+            txtSLBan.Text = dgvSanPham.Rows[i].Cells[4].Value.ToString();
+            txtNgay.Text = dgvSanPham.Rows[i].Cells[5].Value.ToString();
         }
     }
 }
