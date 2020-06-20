@@ -52,6 +52,7 @@
             this.btnThanhToan = new System.Windows.Forms.Button();
             this.txtThanhToan = new System.Windows.Forms.TextBox();
             this.btnClear = new System.Windows.Forms.Button();
+            this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNCC)).BeginInit();
             this.SuspendLayout();
             // 
@@ -165,10 +166,12 @@
             // dgvNCC
             // 
             this.dgvNCC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvNCC.Location = new System.Drawing.Point(2, 163);
+            this.dgvNCC.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1});
+            this.dgvNCC.Location = new System.Drawing.Point(2, 188);
             this.dgvNCC.Name = "dgvNCC";
             this.dgvNCC.RowTemplate.Height = 24;
-            this.dgvNCC.Size = new System.Drawing.Size(873, 250);
+            this.dgvNCC.Size = new System.Drawing.Size(873, 246);
             this.dgvNCC.TabIndex = 13;
             this.dgvNCC.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNCC_CellClick);
             // 
@@ -266,6 +269,11 @@
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Column1";
+            this.Column1.Name = "Column1";
+            // 
             // frmNCC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -330,5 +338,6 @@
         private System.Windows.Forms.Button btnThanhToan;
         private System.Windows.Forms.TextBox txtThanhToan;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
     }
 }

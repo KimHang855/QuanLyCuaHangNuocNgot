@@ -41,14 +41,13 @@ namespace QuanLyCuaHangNuocNgot
 
         private void dgvNCC_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int i;
-            i = dgvNCC.CurrentCell.RowIndex;
-            txtMaNCC.Text = dgvNCC.Rows[i].Cells[0].Value.ToString();
-            txtTenNCC.Text = dgvNCC.Rows[i].Cells[1].Value.ToString();
-            txtSLMua.Text = dgvNCC.Rows[i].Cells[2].Value.ToString();
-            txtGia.Text = dgvNCC.Rows[i].Cells[3].Value.ToString();
-            txtDiaChi.Text = dgvNCC.Rows[i].Cells[4].Value.ToString();
-            txtGC.Text = dgvNCC.Rows[i].Cells[5].Value.ToString();
+            int index = dgvNCC.CurrentCell.RowIndex;
+            txtMaNCC.Text = dgvNCC.Rows[index].Cells["MaNCC"].Value.ToString();
+            txtTenNCC.Text = dgvNCC.Rows[index].Cells["TenNCC"].Value.ToString();
+            txtGia.Text = dgvNCC.Rows[index].Cells["Gia"].Value.ToString();
+            txtDiaChi.Text = dgvNCC.Rows[index].Cells["DiaChi"].Value.ToString();
+            txtSLMua.Text = dgvNCC.Rows[index].Cells["SoLuongMua"].Value.ToString();
+            txtGC.Text = dgvNCC.Rows[index].Cells["GhiChu"].Value.ToString();
         }
 
         private void btnThem_Click(object sender, EventArgs e)
