@@ -16,7 +16,7 @@ namespace QuanLyCuaHangNuocNgot
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmDoiMatKhau());
+            Application.Run(new frmLogin());
         }
     }
 }
