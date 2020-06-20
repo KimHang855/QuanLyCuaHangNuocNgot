@@ -47,7 +47,7 @@ namespace QuanLyCuaHangNuocNgot
             if (txtTenDangNhap.Text != null && txtMatKhau.Text != null)
             {
                 //connnection.Open();
-                string sqlTen = "Select TenTaiKhoan From TaiKhoan Where TenTaiKhoan='" + txtTenDangNhap.Text + "'";
+                string sqlTen = "Select TenTK From TaiKhoan Where TK='" + txtTenDangNhap.Text + "'";
                 SqlCommand cmd = new SqlCommand(sqlTen, connnection);
                 SqlDataReader dr = cmd.ExecuteReader();
                 if ((dr.Read()))
