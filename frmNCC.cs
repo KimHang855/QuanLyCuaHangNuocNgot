@@ -76,6 +76,7 @@ namespace QuanLyCuaHangNuocNgot
             txtSLMua.Text = "";
             txtDiaChi.Text = "";
             txtGC.Text = "";
+           
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -149,6 +150,8 @@ namespace QuanLyCuaHangNuocNgot
             txtGia.Text = null;
             txtDiaChi.Text = null;
             txtGC.Text = null;
+            txtTong.Text = null;
+            txtThanhToan.Text = null;
         }
 
         private void btnTong_Click(object sender, EventArgs e)

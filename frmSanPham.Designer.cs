@@ -54,6 +54,8 @@
             this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.nuocNgotStore_3DataSet = new QuanLyCuaHangNuocNgot.NuocNgotStore_3DataSet();
             this.nuocNgotStore3DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtNgayBan = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSanPham)).BeginInit();
@@ -137,6 +139,8 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.txtNgayBan);
+            this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.lbGia);
             this.panel2.Controls.Add(this.txtNgay);
             this.panel2.Controls.Add(this.lbNgayBan);
@@ -291,6 +295,22 @@
             this.nuocNgotStore3DataSetBindingSource.DataSource = this.nuocNgotStore_3DataSet;
             this.nuocNgotStore3DataSetBindingSource.Position = 0;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(779, 56);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(70, 17);
+            this.label2.TabIndex = 59;
+            this.label2.Text = "Ngày Bán";
+            // 
+            // txtNgayBan
+            // 
+            this.txtNgayBan.Location = new System.Drawing.Point(855, 54);
+            this.txtNgayBan.Name = "txtNgayBan";
+            this.txtNgayBan.Size = new System.Drawing.Size(122, 22);
+            this.txtNgayBan.TabIndex = 60;
+            // 
             // frmSanPham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -340,5 +360,7 @@
         private System.Windows.Forms.Label lbGia;
         private NuocNgotStore_3DataSet nuocNgotStore_3DataSet;
         private System.Windows.Forms.BindingSource nuocNgotStore3DataSetBindingSource;
+        private System.Windows.Forms.TextBox txtNgayBan;
+        private System.Windows.Forms.Label label2;
     }
 }

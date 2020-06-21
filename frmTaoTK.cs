@@ -46,29 +46,43 @@ namespace QuanLyCuaHangNuocNgot
             }
             if (txtTenDangNhap.Text != null && txtMatKhau.Text != null)
             {
-                //connnection.Open();
-                string sqlTen = "Select TenTK From TaiKhoan Where TK='" + txtTenDangNhap.Text + "'";
-                SqlCommand cmd = new SqlCommand(sqlTen, connnection);
-                SqlDataReader dr = cmd.ExecuteReader();
-                if ((dr.Read()))
+                //SqlConnection connnection = new SqlConnection(@"Data Source=DESKTOP-H9PGTJJ\SQLEXPRESS;Initial Catalog=NuocNgotStore_3;Integrated Security=True");
+                
+                if ((string.IsNullOrEmpty(txtTenDangNhap.Text)) || (string.IsNullOrEmpty(txtMatKhau.Text)))
                 {
-                    MessageBox.Show("Tài khoản này đã có người sử dụng, vui lòng chọn tài khoản khác", "Thông báo");
+                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin ", "Thông báo");
                 }
-                else
+                if (txtTenDangNhap.Text != null && txtMatKhau.Text != null)
                 {
-                    if (!dr.Read() && CheckPass() >= 6)
+                    connnection.Open();
+                    string sqlTen = "Select TenTaiKhoan From TaiKhoan Where TenTaiKhoan='" + txtTenDangNhap.Text + "'";
+
+                    SqlCommand cmd = new SqlCommand(sqlTen, connnection);
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    if ((dr.Read()))
                     {
-                        dr.Close();
-                        string sqlCreateAcc = "Insert Into TaiKhoan Values('" + txtTenDangNhap.Text + "','" + txtMatKhau.Text + "','" + txtGhiChu.Text + "')";
-                        SqlCommand cmd1 = new SqlCommand(sqlCreateAcc, connnection);
-                        cmd1.Parameters.AddWithValue("TenTaiKhoan", txtTenDangNhap.Text);
-                        cmd1.Parameters.AddWithValue("MatKhau", txtMatKhau.Text);
-                        cmd1.Parameters.AddWithValue("GhiChu", txtGhiChu.Text);
-                        cmd1.ExecuteNonQuery();
-                        MessageBox.Show("Tạo tài khoản thành công");
-                        connnection.Close();
-                        frmBanHang n3 = new frmBanHang();
-                        n3.ShowDialog();
+                        MessageBox.Show("Tài khoản này đã có người sử dụng, vui lòng chọn tài khoản khác", "Thông báo");
+                    }
+
+
+                    else
+                    {
+                        if (!dr.Read() && CheckPass() >= 6)
+                        {
+                            dr.Close();
+
+                            string sqlCreateAcc = "Insert Into TaiKhoan Values('" + txtTenDangNhap.Text + "','" + txtMatKhau.Text + "','" + txtGhiChu.Text + "')";
+                            SqlCommand cmd1 = new SqlCommand(sqlCreateAcc, connnection);
+                            cmd1.Parameters.AddWithValue("TenTaiKhoan", txtTenDangNhap.Text);
+                            cmd1.Parameters.AddWithValue("MatKhau", txtMatKhau.Text);
+                            cmd1.Parameters.AddWithValue("GhiChu", txtGhiChu.Text);
+                            cmd1.ExecuteNonQuery();
+                            MessageBox.Show("Tạo tài khoản thành công");
+                            connnection.Close();
+                            Form1 n3 = new Form1();
+                            n3.ShowDialog();
+
+                        }
                     }
                 }
             }
