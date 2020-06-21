@@ -45,7 +45,7 @@
             this.lbLogin.AutoSize = true;
             this.lbLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
             this.lbLogin.ForeColor = System.Drawing.Color.Red;
-            this.lbLogin.Location = new System.Drawing.Point(188, 46);
+            this.lbLogin.Location = new System.Drawing.Point(218, 45);
             this.lbLogin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbLogin.Name = "lbLogin";
             this.lbLogin.Size = new System.Drawing.Size(171, 29);
@@ -109,7 +109,7 @@
             // 
             this.btLogIn.BackColor = System.Drawing.SystemColors.Control;
             this.btLogIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btLogIn.Location = new System.Drawing.Point(118, 275);
+            this.btLogIn.Location = new System.Drawing.Point(149, 275);
             this.btLogIn.Margin = new System.Windows.Forms.Padding(4);
             this.btLogIn.Name = "btLogIn";
             this.btLogIn.Size = new System.Drawing.Size(133, 46);
@@ -122,7 +122,7 @@
             // 
             this.btExit.BackColor = System.Drawing.SystemColors.Control;
             this.btExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btExit.Location = new System.Drawing.Point(291, 275);
+            this.btExit.Location = new System.Drawing.Point(308, 275);
             this.btExit.Margin = new System.Windows.Forms.Padding(4);
             this.btExit.Name = "btExit";
             this.btExit.Size = new System.Drawing.Size(137, 46);
@@ -134,7 +134,7 @@
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(130, 363);
+            this.linkLabel1.Location = new System.Drawing.Point(161, 363);
             this.linkLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(121, 17);
@@ -159,7 +159,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(534, 416);
+            this.ClientSize = new System.Drawing.Size(593, 416);
             this.Controls.Add(this.linkLabel2);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.btExit);
@@ -171,9 +171,9 @@
             this.Controls.Add(this.lbUsername);
             this.Controls.Add(this.lbLogin);
             this.Name = "frmLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLogin";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmLogin_FormClosing);
-
             this.ResumeLayout(false);
             this.PerformLayout();
 

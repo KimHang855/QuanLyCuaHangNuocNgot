@@ -37,6 +37,8 @@
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtNgayBan = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.lbGia = new System.Windows.Forms.Label();
             this.txtNgay = new System.Windows.Forms.TextBox();
             this.lbNgayBan = new System.Windows.Forms.Label();
@@ -54,8 +56,6 @@
             this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.nuocNgotStore_3DataSet = new QuanLyCuaHangNuocNgot.NuocNgotStore_3DataSet();
             this.nuocNgotStore3DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtNgayBan = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSanPham)).BeginInit();
@@ -160,10 +160,26 @@
             this.panel2.Size = new System.Drawing.Size(1000, 197);
             this.panel2.TabIndex = 1;
             // 
+            // txtNgayBan
+            // 
+            this.txtNgayBan.Location = new System.Drawing.Point(794, 60);
+            this.txtNgayBan.Name = "txtNgayBan";
+            this.txtNgayBan.Size = new System.Drawing.Size(169, 22);
+            this.txtNgayBan.TabIndex = 60;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(718, 63);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(70, 17);
+            this.label2.TabIndex = 59;
+            this.label2.Text = "Ngày Bán";
+            // 
             // lbGia
             // 
             this.lbGia.AutoSize = true;
-            this.lbGia.Location = new System.Drawing.Point(40, 146);
+            this.lbGia.Location = new System.Drawing.Point(106, 146);
             this.lbGia.Name = "lbGia";
             this.lbGia.Size = new System.Drawing.Size(30, 17);
             this.lbGia.TabIndex = 58;
@@ -171,7 +187,7 @@
             // 
             // txtNgay
             // 
-            this.txtNgay.Location = new System.Drawing.Point(569, 141);
+            this.txtNgay.Location = new System.Drawing.Point(490, 150);
             this.txtNgay.Name = "txtNgay";
             this.txtNgay.Size = new System.Drawing.Size(163, 22);
             this.txtNgay.TabIndex = 57;
@@ -179,7 +195,7 @@
             // lbNgayBan
             // 
             this.lbNgayBan.AutoSize = true;
-            this.lbNgayBan.Location = new System.Drawing.Point(436, 146);
+            this.lbNgayBan.Location = new System.Drawing.Point(409, 150);
             this.lbNgayBan.Name = "lbNgayBan";
             this.lbNgayBan.Size = new System.Drawing.Size(79, 17);
             this.lbNgayBan.TabIndex = 56;
@@ -187,14 +203,14 @@
             // 
             // txtDVT
             // 
-            this.txtDVT.Location = new System.Drawing.Point(569, 98);
+            this.txtDVT.Location = new System.Drawing.Point(490, 107);
             this.txtDVT.Name = "txtDVT";
             this.txtDVT.Size = new System.Drawing.Size(163, 22);
             this.txtDVT.TabIndex = 55;
             // 
             // txtSLTon
             // 
-            this.txtSLTon.Location = new System.Drawing.Point(569, 56);
+            this.txtSLTon.Location = new System.Drawing.Point(490, 65);
             this.txtSLTon.Name = "txtSLTon";
             this.txtSLTon.Size = new System.Drawing.Size(163, 22);
             this.txtSLTon.TabIndex = 53;
@@ -202,16 +218,16 @@
             // lbDVT
             // 
             this.lbDVT.AutoSize = true;
-            this.lbDVT.Location = new System.Drawing.Point(436, 103);
+            this.lbDVT.Location = new System.Drawing.Point(409, 107);
             this.lbDVT.Name = "lbDVT";
-            this.lbDVT.Size = new System.Drawing.Size(75, 17);
+            this.lbDVT.Size = new System.Drawing.Size(82, 17);
             this.lbDVT.TabIndex = 52;
-            this.lbDVT.Text = "Đơn vị tính";
+            this.lbDVT.Text = "Đơn Vị Tính";
             // 
             // lbSLTon
             // 
             this.lbSLTon.AutoSize = true;
-            this.lbSLTon.Location = new System.Drawing.Point(384, 59);
+            this.lbSLTon.Location = new System.Drawing.Point(357, 63);
             this.lbSLTon.Name = "lbSLTon";
             this.lbSLTon.Size = new System.Drawing.Size(127, 17);
             this.lbSLTon.TabIndex = 50;
@@ -295,22 +311,6 @@
             this.nuocNgotStore3DataSetBindingSource.DataSource = this.nuocNgotStore_3DataSet;
             this.nuocNgotStore3DataSetBindingSource.Position = 0;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(779, 56);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 17);
-            this.label2.TabIndex = 59;
-            this.label2.Text = "Ngày Bán";
-            // 
-            // txtNgayBan
-            // 
-            this.txtNgayBan.Location = new System.Drawing.Point(855, 54);
-            this.txtNgayBan.Name = "txtNgayBan";
-            this.txtNgayBan.Size = new System.Drawing.Size(122, 22);
-            this.txtNgayBan.TabIndex = 60;
-            // 
             // frmSanPham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -320,6 +320,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "frmSanPham";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sản Phẩm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmSanPham_FormClosing);
             this.Load += new System.EventHandler(this.frmSanPham_Load);

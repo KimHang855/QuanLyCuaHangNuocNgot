@@ -89,7 +89,7 @@ namespace QuanLyCuaHangNuocNgot
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Thêm NCC thành công");
                     HienThi();
-                    //ResetValues();                    
+                    ResetValues();                    
                 }
             }
             cn.Close();
@@ -104,7 +104,8 @@ namespace QuanLyCuaHangNuocNgot
             txtSLMua.Text = "";
             txtDiaChi.Text = "";
             txtGC.Text = "";
-           
+            txtTong.Text = "";
+            txtThanhToan.Text = "";
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -183,19 +184,24 @@ namespace QuanLyCuaHangNuocNgot
         private void btnTim_Click(object sender, EventArgs e)
         {
             cn.Open();
-            string sqlSearch = "Select * From NCC Where TenNCC =@TenNCC or MaNCC=@MaNCC ";
-            SqlCommand cmd = new SqlCommand(sqlSearch, cn);
-            cmd.Parameters.AddWithValue("MaNCC", txtMaNCC.Text);
-            cmd.Parameters.AddWithValue("TenNCC", txtTenNCC.Text);
-            cmd.Parameters.AddWithValue("Gia", txtGia.Text);
-            cmd.Parameters.AddWithValue("SoLuongMua", txtSLMua.Text);
-            cmd.Parameters.AddWithValue("DiaChi", txtDiaChi.Text);
-            cmd.Parameters.AddWithValue("GhiChu", txtGC.Text);
-            cmd.ExecuteNonQuery();
-            SqlDataReader dr = cmd.ExecuteReader();
-            DataTable dt = new DataTable();
-            dt.Load(dr);
-            dgvNCC.DataSource = dt;
+            if ((string.IsNullOrEmpty(txtMaNCC.Text)))
+                MessageBox.Show("Vui lòng chọn NCC cần tìm");
+            else
+            {
+                string sqlSearch = "Select * From NCC Where TenNCC =@TenNCC or MaNCC=@MaNCC ";
+                SqlCommand cmd = new SqlCommand(sqlSearch, cn);
+                cmd.Parameters.AddWithValue("MaNCC", txtMaNCC.Text);
+                cmd.Parameters.AddWithValue("TenNCC", txtTenNCC.Text);
+                cmd.Parameters.AddWithValue("Gia", txtGia.Text);
+                cmd.Parameters.AddWithValue("SoLuongMua", txtSLMua.Text);
+                cmd.Parameters.AddWithValue("DiaChi", txtDiaChi.Text);
+                cmd.Parameters.AddWithValue("GhiChu", txtGC.Text);
+                cmd.ExecuteNonQuery();
+                SqlDataReader dr = cmd.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Load(dr);
+                dgvNCC.DataSource = dt;
+            }
             cn.Close();
         }
        

@@ -71,6 +71,7 @@ namespace QuanLyCuaHangNuocNgot
                         cmd1.ExecuteNonQuery();
                         MessageBox.Show("Tạo tài khoản thành công");
                         connnection.Close();
+                        this.Hide();
                         Form1 n3 = new Form1();
                         n3.ShowDialog();
 

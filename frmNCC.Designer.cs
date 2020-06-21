@@ -70,7 +70,7 @@
             // lbMaNCC
             // 
             this.lbMaNCC.AutoSize = true;
-            this.lbMaNCC.Location = new System.Drawing.Point(12, 71);
+            this.lbMaNCC.Location = new System.Drawing.Point(24, 68);
             this.lbMaNCC.Name = "lbMaNCC";
             this.lbMaNCC.Size = new System.Drawing.Size(59, 17);
             this.lbMaNCC.TabIndex = 1;
@@ -79,7 +79,7 @@
             // lbTenNCC
             // 
             this.lbTenNCC.AutoSize = true;
-            this.lbTenNCC.Location = new System.Drawing.Point(12, 121);
+            this.lbTenNCC.Location = new System.Drawing.Point(18, 121);
             this.lbTenNCC.Name = "lbTenNCC";
             this.lbTenNCC.Size = new System.Drawing.Size(65, 17);
             this.lbTenNCC.TabIndex = 2;
@@ -97,7 +97,7 @@
             // lbGia
             // 
             this.lbGia.AutoSize = true;
-            this.lbGia.Location = new System.Drawing.Point(213, 122);
+            this.lbGia.Location = new System.Drawing.Point(278, 121);
             this.lbGia.Name = "lbGia";
             this.lbGia.Size = new System.Drawing.Size(30, 17);
             this.lbGia.TabIndex = 4;
@@ -106,7 +106,7 @@
             // lbDiaChi
             // 
             this.lbDiaChi.AutoSize = true;
-            this.lbDiaChi.Location = new System.Drawing.Point(433, 71);
+            this.lbDiaChi.Location = new System.Drawing.Point(448, 71);
             this.lbDiaChi.Name = "lbDiaChi";
             this.lbDiaChi.Size = new System.Drawing.Size(51, 17);
             this.lbDiaChi.TabIndex = 5;
@@ -115,7 +115,7 @@
             // lbGC
             // 
             this.lbGC.AutoSize = true;
-            this.lbGC.Location = new System.Drawing.Point(433, 121);
+            this.lbGC.Location = new System.Drawing.Point(442, 122);
             this.lbGC.Name = "lbGC";
             this.lbGC.Size = new System.Drawing.Size(57, 17);
             this.lbGC.TabIndex = 6;
@@ -192,7 +192,7 @@
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(360, 454);
+            this.btnSua.Location = new System.Drawing.Point(339, 454);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(75, 48);
             this.btnSua.TabIndex = 15;
@@ -202,7 +202,7 @@
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(496, 454);
+            this.btnXoa.Location = new System.Drawing.Point(473, 454);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(75, 48);
             this.btnXoa.TabIndex = 16;
@@ -232,7 +232,7 @@
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(629, 454);
+            this.btnClear.Location = new System.Drawing.Point(606, 454);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(82, 48);
             this.btnClear.TabIndex = 23;
@@ -249,7 +249,7 @@
             // 
             // btnThanhToan
             // 
-            this.btnThanhToan.Location = new System.Drawing.Point(629, 115);
+            this.btnThanhToan.Location = new System.Drawing.Point(651, 113);
             this.btnThanhToan.Name = "btnThanhToan";
             this.btnThanhToan.Size = new System.Drawing.Size(101, 35);
             this.btnThanhToan.TabIndex = 52;
@@ -266,7 +266,7 @@
             // 
             // btnTong
             // 
-            this.btnTong.Location = new System.Drawing.Point(629, 52);
+            this.btnTong.Location = new System.Drawing.Point(651, 52);
             this.btnTong.Name = "btnTong";
             this.btnTong.Size = new System.Drawing.Size(101, 36);
             this.btnTong.TabIndex = 50;
@@ -304,6 +304,7 @@
             this.Controls.Add(this.lbMaNCC);
             this.Controls.Add(this.label1);
             this.Name = "frmNCC";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmNCC";
             this.Load += new System.EventHandler(this.frmNCC_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvNCC)).EndInit();

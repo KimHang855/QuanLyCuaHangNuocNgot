@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtThanhToan = new System.Windows.Forms.TextBox();
             this.btnThanhToan = new System.Windows.Forms.Button();
             this.txtTongTien = new System.Windows.Forms.TextBox();
@@ -53,12 +54,17 @@
             this.lbGia = new System.Windows.Forms.Label();
             this.btnCapNhat = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.nuocNgotStore_3DataSet1 = new QuanLyCuaHangNuocNgot.NuocNgotStore_3DataSet1();
+            this.sanPhamBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sanPhamTableAdapter = new QuanLyCuaHangNuocNgot.NuocNgotStore_3DataSet1TableAdapters.SanPhamTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBanHang)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nuocNgotStore_3DataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sanPhamBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // txtThanhToan
             // 
-            this.txtThanhToan.Location = new System.Drawing.Point(830, 159);
+            this.txtThanhToan.Location = new System.Drawing.Point(805, 216);
             this.txtThanhToan.Margin = new System.Windows.Forms.Padding(4);
             this.txtThanhToan.Name = "txtThanhToan";
             this.txtThanhToan.ReadOnly = true;
@@ -69,7 +75,7 @@
             // btnThanhToan
             // 
             this.btnThanhToan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnThanhToan.Location = new System.Drawing.Point(711, 153);
+            this.btnThanhToan.Location = new System.Drawing.Point(690, 206);
             this.btnThanhToan.Margin = new System.Windows.Forms.Padding(4);
             this.btnThanhToan.Name = "btnThanhToan";
             this.btnThanhToan.Size = new System.Drawing.Size(107, 32);
@@ -80,7 +86,7 @@
             // 
             // txtTongTien
             // 
-            this.txtTongTien.Location = new System.Drawing.Point(830, 111);
+            this.txtTongTien.Location = new System.Drawing.Point(805, 163);
             this.txtTongTien.Margin = new System.Windows.Forms.Padding(4);
             this.txtTongTien.Name = "txtTongTien";
             this.txtTongTien.ReadOnly = true;
@@ -91,7 +97,7 @@
             // btnTongTien
             // 
             this.btnTongTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnTongTien.Location = new System.Drawing.Point(711, 107);
+            this.btnTongTien.Location = new System.Drawing.Point(690, 159);
             this.btnTongTien.Margin = new System.Windows.Forms.Padding(4);
             this.btnTongTien.Name = "btnTongTien";
             this.btnTongTien.Size = new System.Drawing.Size(107, 29);
@@ -102,7 +108,7 @@
             // 
             // txtNgayBan
             // 
-            this.txtNgayBan.Location = new System.Drawing.Point(830, 65);
+            this.txtNgayBan.Location = new System.Drawing.Point(805, 108);
             this.txtNgayBan.Name = "txtNgayBan";
             this.txtNgayBan.Size = new System.Drawing.Size(163, 22);
             this.txtNgayBan.TabIndex = 40;
@@ -110,7 +116,7 @@
             // lbNgayBan
             // 
             this.lbNgayBan.AutoSize = true;
-            this.lbNgayBan.Location = new System.Drawing.Point(723, 65);
+            this.lbNgayBan.Location = new System.Drawing.Point(710, 111);
             this.lbNgayBan.Name = "lbNgayBan";
             this.lbNgayBan.Size = new System.Drawing.Size(70, 17);
             this.lbNgayBan.TabIndex = 39;
@@ -118,7 +124,7 @@
             // 
             // txtDVT
             // 
-            this.txtDVT.Location = new System.Drawing.Point(534, 143);
+            this.txtDVT.Location = new System.Drawing.Point(502, 203);
             this.txtDVT.Name = "txtDVT";
             this.txtDVT.ReadOnly = true;
             this.txtDVT.Size = new System.Drawing.Size(130, 22);
@@ -126,14 +132,15 @@
             // 
             // txtSLBan
             // 
-            this.txtSLBan.Location = new System.Drawing.Point(534, 102);
+            this.txtSLBan.Location = new System.Drawing.Point(502, 154);
             this.txtSLBan.Name = "txtSLBan";
             this.txtSLBan.Size = new System.Drawing.Size(130, 22);
             this.txtSLBan.TabIndex = 37;
+            this.txtSLBan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSLBan_KeyPress);
             // 
             // txtSLTon
             // 
-            this.txtSLTon.Location = new System.Drawing.Point(534, 62);
+            this.txtSLTon.Location = new System.Drawing.Point(502, 114);
             this.txtSLTon.Name = "txtSLTon";
             this.txtSLTon.ReadOnly = true;
             this.txtSLTon.Size = new System.Drawing.Size(130, 22);
@@ -142,16 +149,16 @@
             // lbDVT
             // 
             this.lbDVT.AutoSize = true;
-            this.lbDVT.Location = new System.Drawing.Point(391, 146);
+            this.lbDVT.Location = new System.Drawing.Point(403, 206);
             this.lbDVT.Name = "lbDVT";
-            this.lbDVT.Size = new System.Drawing.Size(75, 17);
+            this.lbDVT.Size = new System.Drawing.Size(82, 17);
             this.lbDVT.TabIndex = 35;
-            this.lbDVT.Text = "Đơn vị tính";
+            this.lbDVT.Text = "Đơn Vị Tính";
             // 
             // lbSLBan
             // 
             this.lbSLBan.AutoSize = true;
-            this.lbSLBan.Location = new System.Drawing.Point(389, 105);
+            this.lbSLBan.Location = new System.Drawing.Point(387, 157);
             this.lbSLBan.Name = "lbSLBan";
             this.lbSLBan.Size = new System.Drawing.Size(98, 17);
             this.lbSLBan.TabIndex = 34;
@@ -160,7 +167,7 @@
             // lbSLTon
             // 
             this.lbSLTon.AutoSize = true;
-            this.lbSLTon.Location = new System.Drawing.Point(389, 62);
+            this.lbSLTon.Location = new System.Drawing.Point(358, 114);
             this.lbSLTon.Name = "lbSLTon";
             this.lbSLTon.Size = new System.Drawing.Size(127, 17);
             this.lbSLTon.TabIndex = 33;
@@ -168,7 +175,7 @@
             // 
             // txtGiaBan
             // 
-            this.txtGiaBan.Location = new System.Drawing.Point(201, 145);
+            this.txtGiaBan.Location = new System.Drawing.Point(154, 201);
             this.txtGiaBan.Name = "txtGiaBan";
             this.txtGiaBan.ReadOnly = true;
             this.txtGiaBan.Size = new System.Drawing.Size(138, 22);
@@ -185,7 +192,7 @@
             // 
             // txtTenSP
             // 
-            this.txtTenSP.Location = new System.Drawing.Point(201, 102);
+            this.txtTenSP.Location = new System.Drawing.Point(154, 154);
             this.txtTenSP.Name = "txtTenSP";
             this.txtTenSP.ReadOnly = true;
             this.txtTenSP.Size = new System.Drawing.Size(138, 22);
@@ -193,7 +200,7 @@
             // 
             // txtMaSP
             // 
-            this.txtMaSP.Location = new System.Drawing.Point(201, 62);
+            this.txtMaSP.Location = new System.Drawing.Point(154, 111);
             this.txtMaSP.Name = "txtMaSP";
             this.txtMaSP.ReadOnly = true;
             this.txtMaSP.Size = new System.Drawing.Size(138, 22);
@@ -202,7 +209,7 @@
             // lbTenSP
             // 
             this.lbTenSP.AutoSize = true;
-            this.lbTenSP.Location = new System.Drawing.Point(93, 107);
+            this.lbTenSP.Location = new System.Drawing.Point(37, 157);
             this.lbTenSP.Name = "lbTenSP";
             this.lbTenSP.Size = new System.Drawing.Size(102, 17);
             this.lbTenSP.TabIndex = 28;
@@ -211,7 +218,7 @@
             // lbMaSP
             // 
             this.lbMaSP.AutoSize = true;
-            this.lbMaSP.Location = new System.Drawing.Point(97, 65);
+            this.lbMaSP.Location = new System.Drawing.Point(43, 111);
             this.lbMaSP.Name = "lbMaSP";
             this.lbMaSP.Size = new System.Drawing.Size(96, 17);
             this.lbMaSP.TabIndex = 27;
@@ -222,7 +229,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(447, 9);
+            this.label1.Location = new System.Drawing.Point(467, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(204, 39);
             this.label1.TabIndex = 45;
@@ -234,10 +241,10 @@
             this.dgvBanHang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1});
             this.dgvBanHang.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvBanHang.Location = new System.Drawing.Point(0, 211);
+            this.dgvBanHang.Location = new System.Drawing.Point(0, 268);
             this.dgvBanHang.Name = "dgvBanHang";
             this.dgvBanHang.RowTemplate.Height = 24;
-            this.dgvBanHang.Size = new System.Drawing.Size(1168, 355);
+            this.dgvBanHang.Size = new System.Drawing.Size(1202, 355);
             this.dgvBanHang.TabIndex = 46;
             this.dgvBanHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBanHang_CellClick);
             // 
@@ -249,7 +256,7 @@
             // btnThoat
             // 
             this.btnThoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnThoat.Location = new System.Drawing.Point(1035, 153);
+            this.btnThoat.Location = new System.Drawing.Point(1030, 210);
             this.btnThoat.Margin = new System.Windows.Forms.Padding(4);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(107, 32);
@@ -261,7 +268,7 @@
             // lbGia
             // 
             this.lbGia.AutoSize = true;
-            this.lbGia.Location = new System.Drawing.Point(97, 150);
+            this.lbGia.Location = new System.Drawing.Point(109, 205);
             this.lbGia.Name = "lbGia";
             this.lbGia.Size = new System.Drawing.Size(30, 17);
             this.lbGia.TabIndex = 59;
@@ -270,7 +277,7 @@
             // btnCapNhat
             // 
             this.btnCapNhat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnCapNhat.Location = new System.Drawing.Point(1035, 96);
+            this.btnCapNhat.Location = new System.Drawing.Point(1030, 153);
             this.btnCapNhat.Margin = new System.Windows.Forms.Padding(4);
             this.btnCapNhat.Name = "btnCapNhat";
             this.btnCapNhat.Size = new System.Drawing.Size(107, 32);
@@ -282,7 +289,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.button1.Location = new System.Drawing.Point(1035, 47);
+            this.button1.Location = new System.Drawing.Point(1030, 102);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(107, 32);
@@ -291,11 +298,25 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // nuocNgotStore_3DataSet1
+            // 
+            this.nuocNgotStore_3DataSet1.DataSetName = "NuocNgotStore_3DataSet1";
+            this.nuocNgotStore_3DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // sanPhamBindingSource
+            // 
+            this.sanPhamBindingSource.DataMember = "SanPham";
+            this.sanPhamBindingSource.DataSource = this.nuocNgotStore_3DataSet1;
+            // 
+            // sanPhamTableAdapter
+            // 
+            this.sanPhamTableAdapter.ClearBeforeFill = true;
+            // 
             // frmBanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1168, 566);
+            this.ClientSize = new System.Drawing.Size(1202, 623);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnCapNhat);
             this.Controls.Add(this.lbGia);
@@ -321,9 +342,12 @@
             this.Controls.Add(this.lbTenSP);
             this.Controls.Add(this.lbMaSP);
             this.Name = "frmBanHang";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmBanHang";
             this.Load += new System.EventHandler(this.frmBanHang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBanHang)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nuocNgotStore_3DataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sanPhamBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -351,10 +375,13 @@
         private System.Windows.Forms.Label lbMaSP;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvBanHang;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Label lbGia;
         private System.Windows.Forms.Button btnCapNhat;
         private System.Windows.Forms.Button button1;
+        private NuocNgotStore_3DataSet1 nuocNgotStore_3DataSet1;
+        private System.Windows.Forms.BindingSource sanPhamBindingSource;
+        private NuocNgotStore_3DataSet1TableAdapters.SanPhamTableAdapter sanPhamTableAdapter;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
     }
 }

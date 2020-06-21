@@ -32,24 +32,10 @@ namespace QuanLyCuaHangNuocNgot
             dgvNCC.DataSource = dt;
         }
 
-        public void HienThi_SP()
-        {
-
-            string sql = "Select * From SanPham";
-            SqlCommand cmd = new SqlCommand(sql, cn);
-            SqlDataReader dr = cmd.ExecuteReader();
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            dt.Load(dr);
-            //hoặc da.Fill(dt);  //Đổ kết quả từ câu lệnh sql vào table            
-            dgvSanPham.DataSource = dt;
-        }
-
         private void frmMuaHang_Load(object sender, EventArgs e)
         {
             cn.Open();
-            HienThi();
-            HienThi_SP();
+            HienThi();           
             cn.Close();
         }
 
@@ -64,43 +50,8 @@ namespace QuanLyCuaHangNuocNgot
             txtGC.Text = dgvNCC.Rows[index].Cells["GhiChu"].Value.ToString();
         }
 
-        private void dgvSanPham_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int index = dgvSanPham.CurrentCell.RowIndex;
-            txtSLTon.Text = dgvSanPham.Rows[index].Cells["SoLuongTon"].Value.ToString();            
-        }
-
-        private void btnSua_Click(object sender, EventArgs e)
-        {
-            cn.Open();
-            //mua sản phẩm cập nhật lại số lượng tồn
-            int SoLuongTon = Int32.Parse(txtSLTon.Text);
-            int SoLuongMua = Int32.Parse(txtSLMua.Text);
-            txtSLTon.Text = (SoLuongTon + SoLuongMua).ToString();
-
-            //Cập nhật form NCC
-            string sqlInsert = "Update NCC Set TenNCC=@TenNCC, Gia=@Gia, SoLuongMua=@SoLuongMua, DiaChi=@DiaChi,GhiChu=@GhiChu Where MaNCC=@MaNCC ";
-            SqlCommand cmd = new SqlCommand(sqlInsert, cn);
-            cmd.Parameters.AddWithValue("MaNCC", txtMaNCC.Text);
-            cmd.Parameters.AddWithValue("TenNCC", txtTenNCC.Text);
-            cmd.Parameters.AddWithValue("Gia", txtGia.Text);
-            cmd.Parameters.AddWithValue("SoLuongMua", txtSLMua.Text);
-            cmd.Parameters.AddWithValue("DiaChi", txtDiaChi.Text);
-            cmd.Parameters.AddWithValue("GhiChu", txtGC.Text);
-            HienThi();
-            
-
-            //hiện số lượng tồn
-            string sqlCapNhat = "Update SanPham Set TenSP=@TenSP, Gia=@Gia, SoLuongTon=@SoLuongTon, Ngay=@Ngay, NgayBan=@NgayBan, DonVi=@DonVi Where MaSP=@MaSP ";
-            SqlCommand cmd1 = new SqlCommand(sqlCapNhat, cn);            
-            cmd.Parameters.AddWithValue("SoLuongTon", txtSLTon.Text);
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Cập nhật thành công");
-            HienThi_SP();
-            //ResetValues();
-            cn.Close();
-        }
-
+        
+       
         private void btnDong_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn muốn thoát khỏi ứng dụng ?", "Thông báo", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)                
@@ -110,7 +61,7 @@ namespace QuanLyCuaHangNuocNgot
         private void btnTong_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtSLMua.Text))
-                MessageBox.Show("Vui lòng nhập số lượng bán");
+                MessageBox.Show("Vui lòng nhập số lượng mua");
             else
             {
                 int Gia = Int32.Parse(txtGia.Text);
@@ -125,12 +76,38 @@ namespace QuanLyCuaHangNuocNgot
 
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
-            DialogResult kq = MessageBox.Show("Giá trị của đơn hàng này là " + txtThanhToan.Text + "", "Thông báo", MessageBoxButtons.YesNo);
-            if (kq == DialogResult.Yes)
+            if (string.IsNullOrEmpty(txtThanhToan.Text))
+                MessageBox.Show("Thông tin hóa đơn rỗng", "Thông báo");
+            else
             {
-                MessageBox.Show("Hóa đơn đã được thanh toán thành công");
-                Application.Exit();
+                DialogResult kq = MessageBox.Show("Giá trị của đơn hàng này là " + txtThanhToan.Text + "", "Thông báo", MessageBoxButtons.YesNo);
+                if (kq == DialogResult.Yes)
+                {
+                    MessageBox.Show("Hóa đơn đã được thanh toán thành công");
+                    //Application.Exit();
+                }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            cn.Open();
+            txtMaNCC.Text = null;
+            txtTenNCC.Text = null;
+            txtSLMua.Text = null;
+            txtGia.Text = null;
+            txtDiaChi.Text = null;
+            txtGC.Text = null;
+            txtTong.Text = null;
+            txtThanhToan.Text = null;
+            HienThi();
+            cn.Close();
+        }
+
+        private void txtSLMua_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+                e.Handled = true;
         }
     }
 }

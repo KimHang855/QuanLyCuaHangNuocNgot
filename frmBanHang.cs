@@ -66,7 +66,9 @@ namespace QuanLyCuaHangNuocNgot
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtThanhToan.Text))
-                MessageBox.Show("Vui lòng nhập thông tin đơn hàng");
+                MessageBox.Show("Thông tin hóa đơn rỗng","Thông báo");
+            //if (string.IsNullOrEmpty(txtThanhToan.Text))
+            //    MessageBox.Show("Vui lòng nhập thông tin đơn hàng");
 
             else
             {
@@ -78,7 +80,7 @@ namespace QuanLyCuaHangNuocNgot
                     int SoLuongTon = Int32.Parse(txtSLTon.Text);
                     int SoLuongBan = Int32.Parse(txtSLBan.Text);
                     txtSLTon.Text = (SoLuongTon - SoLuongBan).ToString();
-                    string sqlCapNhat = "Update SanPham Set TenSP=@TenSP, Gia=@Gia, SoLuongTon=@SoLuongTon, Ngay=@Ngay, NgayBan=@NgayBan, DonVi=@DonVi Where MaSP=@MaSP ";
+                    string sqlCapNhat = "Update SanPham Set TenSP=@TenSP, Gia=@Gia, SoLuongTon=@SoLuongTon, Ngay=@Ngay, DonVi=@DonVi, NgayBan=@NgayBan Where MaSP=@MaSP ";
                     SqlCommand cmd = new SqlCommand(sqlCapNhat, connnection);
                     cmd.Parameters.AddWithValue("MaSP", txtMaSP.Text);
                     cmd.Parameters.AddWithValue("TenSP", txtTenSP.Text);
@@ -97,6 +99,8 @@ namespace QuanLyCuaHangNuocNgot
 
         private void frmBanHang_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'nuocNgotStore_3DataSet1.SanPham' table. You can move, or remove it, as needed.
+            this.sanPhamTableAdapter.Fill(this.nuocNgotStore_3DataSet1.SanPham);
             connnection.Open();
             HienThi();
             connnection.Close();
@@ -108,6 +112,7 @@ namespace QuanLyCuaHangNuocNgot
             SqlDataReader dr = cmd.ExecuteReader();
             DataTable dt = new DataTable();
             dt.Load(dr);
+
             dgvBanHang.DataSource = dt;
         }
 
@@ -162,5 +167,13 @@ namespace QuanLyCuaHangNuocNgot
             HienThi();
             connnection.Close();
         }
+
+        private void txtSLBan_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+
+        
     }
 }

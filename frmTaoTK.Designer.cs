@@ -41,10 +41,11 @@
             // 
             this.lbTaoTK.AutoSize = true;
             this.lbTaoTK.BackColor = System.Drawing.SystemColors.Control;
-            this.lbTaoTK.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.lbTaoTK.Location = new System.Drawing.Point(126, 29);
+            this.lbTaoTK.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
+            this.lbTaoTK.ForeColor = System.Drawing.Color.Red;
+            this.lbTaoTK.Location = new System.Drawing.Point(177, 27);
             this.lbTaoTK.Name = "lbTaoTK";
-            this.lbTaoTK.Size = new System.Drawing.Size(205, 29);
+            this.lbTaoTK.Size = new System.Drawing.Size(218, 29);
             this.lbTaoTK.TabIndex = 7;
             this.lbTaoTK.Text = "TẠO TÀI KHOẢN";
             // 
@@ -65,13 +66,13 @@
             this.txtTenDangNhap.Location = new System.Drawing.Point(182, 109);
             this.txtTenDangNhap.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTenDangNhap.Name = "txtTenDangNhap";
-            this.txtTenDangNhap.Size = new System.Drawing.Size(203, 23);
+            this.txtTenDangNhap.Size = new System.Drawing.Size(222, 23);
             this.txtTenDangNhap.TabIndex = 9;
             // 
             // btHuy
             // 
             this.btHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btHuy.Location = new System.Drawing.Point(236, 275);
+            this.btHuy.Location = new System.Drawing.Point(300, 265);
             this.btHuy.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btHuy.Name = "btHuy";
             this.btHuy.Size = new System.Drawing.Size(95, 55);
@@ -83,7 +84,7 @@
             // btTao
             // 
             this.btTao.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btTao.Location = new System.Drawing.Point(107, 275);
+            this.btTao.Location = new System.Drawing.Point(153, 265);
             this.btTao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btTao.Name = "btTao";
             this.btTao.Size = new System.Drawing.Size(97, 55);
@@ -98,14 +99,14 @@
             this.txtMatKhau.Location = new System.Drawing.Point(182, 167);
             this.txtMatKhau.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtMatKhau.Name = "txtMatKhau";
-            this.txtMatKhau.Size = new System.Drawing.Size(203, 23);
+            this.txtMatKhau.Size = new System.Drawing.Size(222, 23);
             this.txtMatKhau.TabIndex = 11;
             // 
             // lbMatKhau
             // 
             this.lbMatKhau.AutoSize = true;
             this.lbMatKhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lbMatKhau.Location = new System.Drawing.Point(33, 170);
+            this.lbMatKhau.Location = new System.Drawing.Point(62, 170);
             this.lbMatKhau.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbMatKhau.Name = "lbMatKhau";
             this.lbMatKhau.Size = new System.Drawing.Size(77, 20);
@@ -116,7 +117,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(438, 383);
+            this.ClientSize = new System.Drawing.Size(528, 383);
             this.Controls.Add(this.btHuy);
             this.Controls.Add(this.btTao);
             this.Controls.Add(this.txtMatKhau);
@@ -125,6 +126,7 @@
             this.Controls.Add(this.lbTenDangNhap);
             this.Controls.Add(this.lbTaoTK);
             this.Name = "frmTaoTK";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmTaoTK";
             this.ResumeLayout(false);
             this.PerformLayout();
