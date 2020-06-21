@@ -104,8 +104,6 @@ namespace QuanLyCuaHangNuocNgot
             txtSLMua.Text = "";
             txtDiaChi.Text = "";
             txtGC.Text = "";
-            txtTong.Text = "";
-            txtThanhToan.Text = "";
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -213,37 +211,9 @@ namespace QuanLyCuaHangNuocNgot
             txtSLMua.Text = null;
             txtGia.Text = null;
             txtDiaChi.Text = null;
-            txtGC.Text = null;
-            txtTong.Text = null;
-            txtThanhToan.Text = null;
+            txtGC.Text = null;            
             HienThi();
             cn.Close();
-        }
-
-        private void btnTong_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(txtSLMua.Text))
-                MessageBox.Show("Vui lòng nhập số lượng mua");
-            else
-            {
-                int Gia = Int32.Parse(txtGia.Text);
-                int SoLuongMua = Int32.Parse(txtSLMua.Text);
-                txtTong.Text = (Gia * SoLuongMua).ToString();
-                int a;
-                bool d = Int32.TryParse(txtThanhToan.Text, out a);
-                a += Int32.Parse(txtTong.Text);
-                txtThanhToan.Text = (a).ToString();
-            }
-        }
-
-        private void btnThanhToan_Click(object sender, EventArgs e)
-        {
-            DialogResult kq = MessageBox.Show("Giá trị của đơn hàng này là " + txtThanhToan.Text + "", "Thông báo", MessageBoxButtons.YesNo);
-            if (kq == DialogResult.Yes)
-            {
-                MessageBox.Show("Hóa đơn đã được thanh toán thành công");
-                Application.Exit();
-            }
         }
     }
 }
