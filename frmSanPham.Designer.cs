@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnDong = new System.Windows.Forms.Button();
@@ -36,6 +37,8 @@
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cbMaNCC = new System.Windows.Forms.ComboBox();
+            this.lbMaNCC = new System.Windows.Forms.Label();
             this.lbGia = new System.Windows.Forms.Label();
             this.txtNgay = new System.Windows.Forms.TextBox();
             this.lbNgayBan = new System.Windows.Forms.Label();
@@ -51,11 +54,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dgvSanPham = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.lbMaNCC = new System.Windows.Forms.Label();
-            this.cbMaNCC = new System.Windows.Forms.ComboBox();
+            this.nuocNgotStore_3DataSet = new QuanLyCuaHangNuocNgot.NuocNgotStore_3DataSet();
+            this.nuocNgotStore3DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSanPham)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nuocNgotStore_3DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nuocNgotStore3DataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -154,6 +159,24 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1000, 197);
             this.panel2.TabIndex = 1;
+            // 
+            // cbMaNCC
+            // 
+            this.cbMaNCC.FormattingEnabled = true;
+            this.cbMaNCC.Location = new System.Drawing.Point(837, 55);
+            this.cbMaNCC.Name = "cbMaNCC";
+            this.cbMaNCC.Size = new System.Drawing.Size(151, 24);
+            this.cbMaNCC.TabIndex = 61;
+            this.cbMaNCC.SelectionChangeCommitted += new System.EventHandler(this.cbMaNCC_SelectionChangeCommitted);
+            // 
+            // lbMaNCC
+            // 
+            this.lbMaNCC.AutoSize = true;
+            this.lbMaNCC.Location = new System.Drawing.Point(756, 58);
+            this.lbMaNCC.Name = "lbMaNCC";
+            this.lbMaNCC.Size = new System.Drawing.Size(59, 17);
+            this.lbMaNCC.TabIndex = 59;
+            this.lbMaNCC.Text = "Mã NCC";
             // 
             // lbGia
             // 
@@ -280,23 +303,15 @@
             this.Column1.HeaderText = "";
             this.Column1.Name = "Column1";
             // 
-            // lbMaNCC
+            // nuocNgotStore_3DataSet
             // 
-            this.lbMaNCC.AutoSize = true;
-            this.lbMaNCC.Location = new System.Drawing.Point(756, 58);
-            this.lbMaNCC.Name = "lbMaNCC";
-            this.lbMaNCC.Size = new System.Drawing.Size(59, 17);
-            this.lbMaNCC.TabIndex = 59;
-            this.lbMaNCC.Text = "Mã NCC";
+            this.nuocNgotStore_3DataSet.DataSetName = "NuocNgotStore_3DataSet";
+            this.nuocNgotStore_3DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // cbMaNCC
+            // nuocNgotStore3DataSetBindingSource
             // 
-            this.cbMaNCC.FormattingEnabled = true;
-            this.cbMaNCC.Location = new System.Drawing.Point(837, 55);
-            this.cbMaNCC.Name = "cbMaNCC";
-            this.cbMaNCC.Size = new System.Drawing.Size(151, 24);
-            this.cbMaNCC.TabIndex = 61;
-            this.cbMaNCC.SelectionChangeCommitted += new System.EventHandler(this.cbMaNCC_SelectionChangeCommitted);
+            this.nuocNgotStore3DataSetBindingSource.DataSource = this.nuocNgotStore_3DataSet;
+            this.nuocNgotStore3DataSetBindingSource.Position = 0;
             // 
             // frmSanPham
             // 
@@ -314,6 +329,8 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSanPham)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nuocNgotStore_3DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nuocNgotStore3DataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -345,5 +362,7 @@
         private System.Windows.Forms.Label lbGia;
         private System.Windows.Forms.Label lbMaNCC;
         private System.Windows.Forms.ComboBox cbMaNCC;
+        private NuocNgotStore_3DataSet nuocNgotStore_3DataSet;
+        private System.Windows.Forms.BindingSource nuocNgotStore3DataSetBindingSource;
     }
 }

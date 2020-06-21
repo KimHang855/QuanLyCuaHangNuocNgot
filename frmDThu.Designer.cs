@@ -32,19 +32,19 @@
             this.btnTong = new System.Windows.Forms.Button();
             this.txtDT = new System.Windows.Forms.TextBox();
             this.btnThoat = new System.Windows.Forms.Button();
-            this.dtpNgay = new System.Windows.Forms.DateTimePicker();
             this.lbNgay = new System.Windows.Forms.Label();
             this.dgvDThu = new System.Windows.Forms.DataGridView();
+            this.txtNgayBan = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDThu)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtNgayBan);
             this.groupBox1.Controls.Add(this.btnTong);
             this.groupBox1.Controls.Add(this.txtDT);
             this.groupBox1.Controls.Add(this.btnThoat);
-            this.groupBox1.Controls.Add(this.dtpNgay);
             this.groupBox1.Controls.Add(this.lbNgay);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
@@ -81,23 +81,14 @@
             this.btnThoat.UseVisualStyleBackColor = true;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
-            // dtpNgay
-            // 
-            this.dtpNgay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpNgay.Location = new System.Drawing.Point(244, 33);
-            this.dtpNgay.Name = "dtpNgay";
-            this.dtpNgay.Size = new System.Drawing.Size(200, 22);
-            this.dtpNgay.TabIndex = 1;
-            this.dtpNgay.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
-            // 
             // lbNgay
             // 
             this.lbNgay.AutoSize = true;
             this.lbNgay.Location = new System.Drawing.Point(86, 33);
             this.lbNgay.Name = "lbNgay";
-            this.lbNgay.Size = new System.Drawing.Size(41, 17);
+            this.lbNgay.Size = new System.Drawing.Size(69, 17);
             this.lbNgay.TabIndex = 0;
-            this.lbNgay.Text = "Ngày";
+            this.lbNgay.Text = "Ngày bán";
             // 
             // dgvDThu
             // 
@@ -108,6 +99,14 @@
             this.dgvDThu.RowTemplate.Height = 24;
             this.dgvDThu.Size = new System.Drawing.Size(678, 324);
             this.dgvDThu.TabIndex = 6;
+            // 
+            // txtNgayBan
+            // 
+            this.txtNgayBan.Location = new System.Drawing.Point(244, 33);
+            this.txtNgayBan.Name = "txtNgayBan";
+            this.txtNgayBan.Size = new System.Drawing.Size(200, 22);
+            this.txtNgayBan.TabIndex = 6;
+            this.txtNgayBan.TextChanged += new System.EventHandler(this.txtNgayBan_TextChanged);
             // 
             // frmDThu
             // 
@@ -129,11 +128,11 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DateTimePicker dtpNgay;
         private System.Windows.Forms.Label lbNgay;
         private System.Windows.Forms.TextBox txtDT;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Button btnTong;
         private System.Windows.Forms.DataGridView dgvDThu;
+        private System.Windows.Forms.TextBox txtNgayBan;
     }
 }

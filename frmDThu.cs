@@ -14,15 +14,12 @@ namespace QuanLyCuaHangNuocNgot
     public partial class frmDThu : Form
     {
         SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-H9PGTJJ\SQLEXPRESS;Initial Catalog=NuocNgotStore_3;Integrated Security=True");
+        private object dgvSanPham;
+
         public frmDThu()
         {
             InitializeComponent();
-        }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
+        }      
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
@@ -66,6 +63,20 @@ namespace QuanLyCuaHangNuocNgot
             //        (Double.Parse(dgvDThu.Rows[n].Cells[2].Value.ToString()) *
             //        Double.Parse(dgvDThu.Rows[n].Cells[4].Value.ToString())).ToString();
             //}
+        }
+
+        private void txtNgayBan_TextChanged(object sender, EventArgs e)
+        {
+            cn.Open();
+            string sqlSearch = "Select * From SanPham Where NgayBan=@NgayBan ";
+            SqlCommand cmd = new SqlCommand(sqlSearch, cn);            
+            cmd.Parameters.AddWithValue("NgayBan", txtNgayBan.Text);
+            cmd.ExecuteNonQuery();
+            SqlDataReader dr = cmd.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(dr);
+            dgvDThu.DataSource = dt;
+            cn.Close();
         }
     }
 }
