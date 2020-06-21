@@ -68,7 +68,8 @@ namespace QuanLyCuaHangNuocNgot
         private void txtNgayBan_TextChanged(object sender, EventArgs e)
         {
             cn.Open();
-            string sqlSearch = "Select * From SanPham Where NgayBan=@NgayBan ";
+
+            string sqlSearch = "Select * From SanPham Where NgayBan='"+txtNgayBan+"'";
             SqlCommand cmd = new SqlCommand(sqlSearch, cn);            
             cmd.Parameters.AddWithValue("NgayBan", txtNgayBan.Text);
             cmd.ExecuteNonQuery();

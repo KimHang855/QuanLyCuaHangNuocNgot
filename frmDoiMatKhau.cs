@@ -38,8 +38,8 @@ namespace QuanLyCuaHangNuocNgot
             connnection.Open();
             //string sqlUpdate = "Update TaiKhoan Set MatKhau='" + txtMK.Text + "'Where TenTaiKhoan='" + txtTentk.Text + "'";
             //"update Taikhoan set MatKhau = '"+txtMK.Text+"' where TenTaiKhoan = '"+txtTentk.Text+"'";
-            string sqlUpdate = "Update Taikhoan Set MatKhau = '" + txtMK.Text + "' where TenTaiKhoan = '" + txtTentk.Text + "'";
-            string sqlSelect = "Select TenTaiKhoan From TaiKhoan Where TenTaiKhoan='" + txtTentk.Text + "'";
+            string sqlUpdate = "Update Taikhoan Set MatKhau = '" + txtMK.Text + "' where TenTK = '" + txtTentk.Text + "'";
+            string sqlSelect = "Select TenTK From TaiKhoan Where TenTK='" + txtTentk.Text + "'";
             SqlCommand cmd = new SqlCommand(sqlUpdate, connnection);
             SqlCommand cmd1 = new SqlCommand(sqlSelect, connnection);
             SqlDataReader dr6 = cmd1.ExecuteReader();

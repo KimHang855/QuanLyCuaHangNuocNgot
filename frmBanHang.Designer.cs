@@ -52,6 +52,7 @@
             this.btnThoat = new System.Windows.Forms.Button();
             this.lbGia = new System.Windows.Forms.Label();
             this.btnCapNhat = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBanHang)).BeginInit();
             this.SuspendLayout();
             // 
@@ -248,7 +249,7 @@
             // btnThoat
             // 
             this.btnThoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnThoat.Location = new System.Drawing.Point(1035, 133);
+            this.btnThoat.Location = new System.Drawing.Point(1035, 153);
             this.btnThoat.Margin = new System.Windows.Forms.Padding(4);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(107, 32);
@@ -269,7 +270,7 @@
             // btnCapNhat
             // 
             this.btnCapNhat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnCapNhat.Location = new System.Drawing.Point(1035, 75);
+            this.btnCapNhat.Location = new System.Drawing.Point(1035, 96);
             this.btnCapNhat.Margin = new System.Windows.Forms.Padding(4);
             this.btnCapNhat.Name = "btnCapNhat";
             this.btnCapNhat.Size = new System.Drawing.Size(107, 32);
@@ -278,11 +279,24 @@
             this.btnCapNhat.UseVisualStyleBackColor = true;
             this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.button1.Location = new System.Drawing.Point(1035, 47);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(107, 32);
+            this.button1.TabIndex = 61;
+            this.button1.Text = "Clear";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmBanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1168, 566);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnCapNhat);
             this.Controls.Add(this.lbGia);
             this.Controls.Add(this.btnThoat);
@@ -341,5 +355,6 @@
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Label lbGia;
         private System.Windows.Forms.Button btnCapNhat;
+        private System.Windows.Forms.Button button1;
     }
 }

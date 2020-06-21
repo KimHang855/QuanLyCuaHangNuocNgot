@@ -21,7 +21,7 @@ namespace QuanLyCuaHangNuocNgot
 
         public void HienThi()
         {
-            
+
             string sql = "Select * From NCC";
             SqlCommand cmd = new SqlCommand(sql, cn);
             SqlDataReader dr = cmd.ExecuteReader();
@@ -31,13 +31,13 @@ namespace QuanLyCuaHangNuocNgot
             //hoặc da.Fill(dt);  //Đổ kết quả từ câu lệnh sql vào table            
             dgvNCC.DataSource = dt;
         }
-       
+
         private void frmNCC_Load(object sender, EventArgs e)
         {
             cn.Open();
-            HienThi();           
+            HienThi();
             cn.Close();
-        }       
+        }
 
         private void dgvNCC_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -53,20 +53,48 @@ namespace QuanLyCuaHangNuocNgot
         private void btnThem_Click(object sender, EventArgs e)
         {
             cn.Open();
-            string sqlInsert = "Insert Into NCC Values(@MaNCC,@TenNCC,@SoLuongMua,@Gia,@DiaChi,@GhiChu)";
-            SqlCommand cmd = new SqlCommand(sqlInsert, cn);
-            cmd.Parameters.AddWithValue("MaNCC", txtMaNCC.Text);
-            cmd.Parameters.AddWithValue("TenNCC", txtTenNCC.Text);
-            cmd.Parameters.AddWithValue("Gia", txtGia.Text);
-            cmd.Parameters.AddWithValue("SoLuongMua", txtSLMua.Text);
-            cmd.Parameters.AddWithValue("DiaChi", txtDiaChi.Text);
-            cmd.Parameters.AddWithValue("GhiChu", txtGC.Text);
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Thêm thành công");
-            HienThi();
-            ResetValues();
+            string sqlSelect = "Select * From NCC Where MaNCC='" + txtMaNCC.Text + "'";
+            SqlCommand cmd1 = new SqlCommand(sqlSelect, cn);
+            SqlDataReader dr = cmd1.ExecuteReader();
+            if ((dr.Read()))
+            {
+                MessageBox.Show("Mã NCC đã tồn tại, vui lòng nhập lại mã NCC", "Thông báo");
+            }
+            else
+            if (string.IsNullOrEmpty(txtMaNCC.Text) || string.IsNullOrEmpty(txtTenNCC.Text) || string.IsNullOrEmpty(txtSLMua.Text) || string.IsNullOrEmpty(txtGia.Text) || string.IsNullOrEmpty(txtDiaChi.Text))
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin");
+            else
+            {
+                dr.Close();
+                int b;
+                float c;
+                bool o = int.TryParse(txtSLMua.Text, out b);
+                bool l = float.TryParse(txtGia.Text, out c);
+
+                if (!o)
+                    MessageBox.Show("Vui lòng nhập số lượng là một số");
+                else if (!l)
+                    MessageBox.Show("Vui lòng nhập giá là một số");
+
+                else
+                {
+                    string sqlInsert = "Insert Into NCC Values(@MaNCC,@TenNCC,@SoLuongMua,@Gia,@DiaChi,@GhiChu)";
+                    SqlCommand cmd = new SqlCommand(sqlInsert, cn);
+                    cmd.Parameters.AddWithValue("MaNCC", txtMaNCC.Text);
+                    cmd.Parameters.AddWithValue("TenNCC", txtTenNCC.Text);
+                    cmd.Parameters.AddWithValue("Gia", txtGia.Text);
+                    cmd.Parameters.AddWithValue("SoLuongMua", txtSLMua.Text);
+                    cmd.Parameters.AddWithValue("DiaChi", txtDiaChi.Text);
+                    cmd.Parameters.AddWithValue("GhiChu", txtGC.Text);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Thêm NCC thành công");
+                    HienThi();
+                    //ResetValues();                    
+                }
+            }
             cn.Close();
         }
+    
 
         private void ResetValues()
         {
@@ -82,37 +110,66 @@ namespace QuanLyCuaHangNuocNgot
         private void btnSua_Click(object sender, EventArgs e)
         {
             cn.Open();
-            //Cập nhật form NCC
-            string sqlInsert = "Update NCC Set TenNCC=@TenNCC, Gia=@Gia, SoLuongMua=@SoLuongMua, DiaChi=@DiaChi,GhiChu=@GhiChu Where MaNCC=@MaNCC ";
-            SqlCommand cmd = new SqlCommand(sqlInsert, cn);
-            cmd.Parameters.AddWithValue("MaNCC", txtMaNCC.Text);
-            cmd.Parameters.AddWithValue("TenNCC", txtTenNCC.Text);
-            cmd.Parameters.AddWithValue("Gia", txtGia.Text);
-            cmd.Parameters.AddWithValue("SoLuongMua", txtSLMua.Text);
-            cmd.Parameters.AddWithValue("DiaChi", txtDiaChi.Text);
-            cmd.Parameters.AddWithValue("GhiChu", txtGC.Text);           
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Cập nhật thành công");
-            HienThi();
-            //ResetValues();
+            string sqlSelect = "Select * From NCC Where MaNCC='" + txtMaNCC.Text + "'";
+            SqlCommand cmd7 = new SqlCommand(sqlSelect, cn);
+            SqlDataReader dr = cmd7.ExecuteReader();
+            if (!(dr.Read()))
+            {
+                MessageBox.Show("Mã NCC không tồn tại, vui lòng nhập lại mã NCC", "Thông báo");
+            }
+            else
+            if (string.IsNullOrEmpty(txtMaNCC.Text) || string.IsNullOrEmpty(txtTenNCC.Text) || string.IsNullOrEmpty(txtSLMua.Text) || string.IsNullOrEmpty(txtGia.Text) || string.IsNullOrEmpty(txtDiaChi.Text) )
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin");
+            else
+            {
+                dr.Close();
+                int b;
+                float c;
+                bool o = int.TryParse(txtSLMua.Text, out b);
+                bool l = float.TryParse(txtGia.Text, out c);
+
+                if (!o)
+                    MessageBox.Show("Vui lòng nhập số lượng là một số");
+                else if (!l)
+                    MessageBox.Show("Vui lòng nhập giá là một số");
+
+                else
+                {
+                    string sqlUpdate = "Update NCC Set MaNCC=@MaNCC,TenNCC=@TenNCC,SoLuongMua=@SoLuongMua,Gia=@Gia,DiaChi=@DiaChi,GhiChu=@GhiChu Where MaNCC=@MaNCC";
+                    SqlCommand cmd = new SqlCommand(sqlUpdate, cn);
+                    cmd.Parameters.AddWithValue("MaNCC", txtMaNCC.Text);
+                    cmd.Parameters.AddWithValue("TenNCC", txtTenNCC.Text);
+                    cmd.Parameters.AddWithValue("Gia", txtGia.Text);
+                    cmd.Parameters.AddWithValue("SoLuongMua", txtSLMua.Text);
+                    cmd.Parameters.AddWithValue("DiaChi", txtDiaChi.Text);
+                    cmd.Parameters.AddWithValue("GhiChu", txtGC.Text);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Cập nhật thông tin NCC thành công");
+                    HienThi();
+                }
+
+            }
             cn.Close();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
             cn.Open();
-            string sqlDelete = "Delete From NCC Where MaNCC = @MaNCC";
-            SqlCommand cmd = new SqlCommand(sqlDelete, cn);
-            cmd.Parameters.AddWithValue("MaNCC", txtMaNCC.Text);
-            cmd.Parameters.AddWithValue("TenNCC", txtTenNCC.Text);
-            cmd.Parameters.AddWithValue("Gia", txtGia.Text);
-            cmd.Parameters.AddWithValue("SoLuongMua", txtSLMua.Text);
-            cmd.Parameters.AddWithValue("DiaChi", txtDiaChi.Text);
-            cmd.Parameters.AddWithValue("GhiChu", txtGC.Text);
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Xóa thành công");
-            HienThi();
-            ResetValues();
+            if ((string.IsNullOrEmpty(txtMaNCC.Text)))
+                MessageBox.Show("Vui lòng chọn NCC cần xóa");
+            else {
+                string sqlDelete = "Delete From NCC Where MaNCC = @MaNCC";
+                SqlCommand cmd = new SqlCommand(sqlDelete, cn);
+                cmd.Parameters.AddWithValue("MaNCC", txtMaNCC.Text);
+                cmd.Parameters.AddWithValue("TenNCC", txtTenNCC.Text);
+                cmd.Parameters.AddWithValue("Gia", txtGia.Text);
+                cmd.Parameters.AddWithValue("SoLuongMua", txtSLMua.Text);
+                cmd.Parameters.AddWithValue("DiaChi", txtDiaChi.Text);
+                cmd.Parameters.AddWithValue("GhiChu", txtGC.Text);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Xóa thành công");
+                HienThi();
+                ResetValues(); }
             cn.Close();
         }
 
@@ -144,6 +201,7 @@ namespace QuanLyCuaHangNuocNgot
        
         private void btnClear_Click(object sender, EventArgs e)
         {
+            cn.Open();
             txtMaNCC.Text = null;
             txtTenNCC.Text = null;
             txtSLMua.Text = null;
@@ -152,6 +210,8 @@ namespace QuanLyCuaHangNuocNgot
             txtGC.Text = null;
             txtTong.Text = null;
             txtThanhToan.Text = null;
+            HienThi();
+            cn.Close();
         }
 
         private void btnTong_Click(object sender, EventArgs e)

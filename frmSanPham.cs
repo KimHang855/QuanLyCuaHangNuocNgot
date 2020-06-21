@@ -47,21 +47,47 @@ namespace QuanLyCuaHangNuocNgot
         private void btnThem_Click(object sender, EventArgs e)
         {
             cn.Open();
+            
+            string sqlSelect = "Select * From SanPham Where MaSP='" + txtMaSP.Text + "'";
+            SqlCommand cmd7 = new SqlCommand(sqlSelect, cn);
+            SqlDataReader dr = cmd7.ExecuteReader();
+            if ((dr.Read()))
+            {
+                MessageBox.Show("Mã sản phẩm đã tồn tại, vui lòng nhập lại mã sản phẩm", "Thông báo");
+            }
+            else
+            if (string.IsNullOrEmpty(txtMaSP.Text) || string.IsNullOrEmpty(txtTenSP.Text) || string.IsNullOrEmpty(txtGiaBan.Text) || string.IsNullOrEmpty(txtDVT.Text) || string.IsNullOrEmpty(txtSLTon.Text))
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin");
+            else
+            {
+                dr.Close();
+                int b;
+                float c;
+                bool o = int.TryParse(txtSLTon.Text, out b);
+                bool l = float.TryParse(txtGiaBan.Text, out c);
 
-            string sqlInsert = "Insert Into SanPham Values(@MaSP,@TenSP,@Gia,@SoLuongTon,@Ngay,@DonVi,@NgayBan)";
-            //string sqlInsert = "Insert Into Product values('"+txtMaSP.Text+"','"+txtTenSP.Text+ "','"+txtGiaBan.Text+ "','"+txtSLTon.Text+ "','"+txtSLBan.Text+"','"+txtDVT.Text+ "','"+txtMaLoai.Text+ "','"+txtNCC.Text+ "','"+txtNgayBan.Text+"')";
-            SqlCommand cmd = new SqlCommand(sqlInsert, cn);
-            cmd.Parameters.AddWithValue("MaSP", txtMaSP.Text);
-            cmd.Parameters.AddWithValue("TenSP", txtTenSP.Text);
-            cmd.Parameters.AddWithValue("Gia", txtGiaBan.Text);
-            cmd.Parameters.AddWithValue("SoLuongTon", txtSLTon.Text);
-            cmd.Parameters.AddWithValue("Ngay", txtNgay.Text);
-            cmd.Parameters.AddWithValue("DonVi", txtDVT.Text);
-            cmd.Parameters.AddWithValue("NgayBan", txtNgayBan.Text);
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Thêm sản phẩm thành công");
-            HienThi();
-            ResetValues();
+                if (!o)
+                    MessageBox.Show("Vui lòng nhập số lượng là một số");
+                else if (!l)
+                    MessageBox.Show("Vui lòng nhập giá là một số");
+
+                else
+                {
+                    string sqlInsert = "Insert Into SanPham Values(@MaSP,@TenSP,@Gia,@SoLuongTon,@Ngay,@DonVi,@NgayBan)";
+                    SqlCommand cmd = new SqlCommand(sqlInsert, cn);
+                    cmd.Parameters.AddWithValue("MaSP", txtMaSP.Text);
+                    cmd.Parameters.AddWithValue("TenSP", txtTenSP.Text);
+                    cmd.Parameters.AddWithValue("Gia", txtGiaBan.Text);
+                    cmd.Parameters.AddWithValue("SoLuongTon", txtSLTon.Text);
+                    cmd.Parameters.AddWithValue("Ngay", txtNgayBan.Text);
+                    cmd.Parameters.AddWithValue("NgayBan", txtNgayBan.Text);
+                    cmd.Parameters.AddWithValue("DonVi", txtDVT.Text);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Thêm sản phẩm thành công");
+                    HienThi();
+                }
+            }
+            
             cn.Close();
         }
 
@@ -79,20 +105,47 @@ namespace QuanLyCuaHangNuocNgot
         private void btnSua_Click(object sender, EventArgs e)
         {
             cn.Open();
-            string sqlCapNhat = "Update SanPham Set TenSP=@TenSP, Gia=@Gia, SoLuongTon=@SoLuongTon, Ngay=@Ngay, NgayBan=@NgayBan, DonVi=@DonVi Where MaSP=@MaSP ";
-            SqlCommand cmd = new SqlCommand(sqlCapNhat, cn);
-            cmd.Parameters.AddWithValue("MaSP", txtMaSP.Text);
-            cmd.Parameters.AddWithValue("TenSP", txtTenSP.Text);
-            cmd.Parameters.AddWithValue("Gia", txtGiaBan.Text);
-            cmd.Parameters.AddWithValue("SoLuongTon", txtSLTon.Text);
-            cmd.Parameters.AddWithValue("Ngay", txtNgayBan.Text);
-            cmd.Parameters.AddWithValue("NgayBan", txtNgayBan.Text);
-            cmd.Parameters.AddWithValue("DonVi", txtDVT.Text);
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Cập nhật thông tin sản phẩm thành công");
-            HienThi();
-            //ResetValues();
-            cn.Close();
+            string sqlSelect = "Select * From SanPham Where MaSP='" + txtMaSP.Text + "'";
+            SqlCommand cmd7 = new SqlCommand(sqlSelect, cn);
+            SqlDataReader dr = cmd7.ExecuteReader();
+            if (!(dr.Read()))
+            {
+                MessageBox.Show("Mã sản phẩm không tồn tại, vui lòng nhập lại mã sản phẩm", "Thông báo");
+            }
+            else
+            if (string.IsNullOrEmpty(txtMaSP.Text) || string.IsNullOrEmpty(txtTenSP.Text) || string.IsNullOrEmpty(txtGiaBan.Text) || string.IsNullOrEmpty(txtDVT.Text) || string.IsNullOrEmpty(txtSLTon.Text))
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin");
+            else
+            {
+                dr.Close();
+                int b;
+                float c;
+                bool o = int.TryParse(txtSLTon.Text, out b);
+                bool l = float.TryParse(txtGiaBan.Text, out c);
+
+                if (!o)
+                    MessageBox.Show("Vui lòng nhập số lượng là một số");
+                else if (!l)
+                    MessageBox.Show("Vui lòng nhập giá là một số");
+
+                else
+                {
+                    string sqlUpdate = "Update SanPham Set TenSP =@TenSP, Gia=@Gia, SoLuongTon=@SoLuongTon, Ngay=@Ngay, DonVi=@DonVi, NgayBan = @NgayBan Where MaSP=@MaSP ";
+                    SqlCommand cmd = new SqlCommand(sqlUpdate, cn);
+                    cmd.Parameters.AddWithValue("MaSP", txtMaSP.Text);
+                    cmd.Parameters.AddWithValue("TenSP", txtTenSP.Text);
+                    cmd.Parameters.AddWithValue("Gia", txtGiaBan.Text);
+                    cmd.Parameters.AddWithValue("SoLuongTon", txtSLTon.Text);
+                    cmd.Parameters.AddWithValue("Ngay", txtNgay.Text);
+                    cmd.Parameters.AddWithValue("NgayBan", txtNgayBan.Text);
+                    cmd.Parameters.AddWithValue("DonVi", txtDVT.Text);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Cập nhật thông tin sản phẩm thành công");
+                    HienThi();
+                }
+
+            }
+            cn.Close();            
         }
         private void btnDong_Click(object sender, EventArgs e)
         {
@@ -103,19 +156,24 @@ namespace QuanLyCuaHangNuocNgot
         private void btnXoa_Click(object sender, EventArgs e)
         {
             cn.Open();
-            string sqlDelete = "Delete From SanPham Where MaSP = @MaSP";
-            SqlCommand cmd = new SqlCommand(sqlDelete, cn);
-            cmd.Parameters.AddWithValue("MaSP", txtMaSP.Text);
-            cmd.Parameters.AddWithValue("TenSP", txtTenSP.Text);
-            cmd.Parameters.AddWithValue("Gia", txtGiaBan.Text);
-            cmd.Parameters.AddWithValue("SoLuongTon", txtSLTon.Text);
-            cmd.Parameters.AddWithValue("Ngay", txtNgay.Text);
-            cmd.Parameters.AddWithValue("DonVi", txtDVT.Text);
-            cmd.Parameters.AddWithValue("NgayBan", txtNgayBan.Text);
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Xóa sản phẩm thành công");
-            HienThi();
-            ResetValues();
+            if ((string.IsNullOrEmpty(txtMaSP.Text)))
+                MessageBox.Show("Vui lòng chọn sản phẩm cần xóa");
+            else
+            {
+                string sqlDelete = "Delete From SanPham Where MaSP = @MaSP";
+                SqlCommand cmd = new SqlCommand(sqlDelete, cn);
+                cmd.Parameters.AddWithValue("MaSP", txtMaSP.Text);
+                cmd.Parameters.AddWithValue("TenSP", txtTenSP.Text);
+                cmd.Parameters.AddWithValue("Gia", txtGiaBan.Text);
+                cmd.Parameters.AddWithValue("SoLuongTon", txtSLTon.Text);
+                cmd.Parameters.AddWithValue("Ngay", txtNgay.Text);
+                cmd.Parameters.AddWithValue("DonVi", txtDVT.Text);
+                cmd.Parameters.AddWithValue("NgayBan", txtNgayBan.Text);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Xóa sản phẩm thành công");
+                HienThi();
+                ResetValues();
+            }
             cn.Close();
         }
 
@@ -154,12 +212,15 @@ namespace QuanLyCuaHangNuocNgot
 
         private void btnClear_Click(object sender, EventArgs e)
         {
+            cn.Open();
             txtMaSP.Text = null;
             txtTenSP.Text = null;
             txtDVT.Text = null;
             txtGiaBan.Text = null;
             txtSLTon.Text = null;
             txtNgayBan.Text = null;
+            HienThi();
+            cn.Close();
         }
     }
 }

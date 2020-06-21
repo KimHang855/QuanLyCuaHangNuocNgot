@@ -31,8 +31,6 @@
             this.lbTaoTK = new System.Windows.Forms.Label();
             this.lbTenDangNhap = new System.Windows.Forms.Label();
             this.txtTenDangNhap = new System.Windows.Forms.TextBox();
-            this.txtGhiChu = new System.Windows.Forms.TextBox();
-            this.lbGhiChu = new System.Windows.Forms.Label();
             this.btHuy = new System.Windows.Forms.Button();
             this.btTao = new System.Windows.Forms.Button();
             this.txtMatKhau = new System.Windows.Forms.TextBox();
@@ -69,26 +67,6 @@
             this.txtTenDangNhap.Name = "txtTenDangNhap";
             this.txtTenDangNhap.Size = new System.Drawing.Size(203, 23);
             this.txtTenDangNhap.TabIndex = 9;
-            // 
-            // txtGhiChu
-            // 
-            this.txtGhiChu.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.txtGhiChu.Location = new System.Drawing.Point(182, 216);
-            this.txtGhiChu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtGhiChu.Name = "txtGhiChu";
-            this.txtGhiChu.Size = new System.Drawing.Size(203, 23);
-            this.txtGhiChu.TabIndex = 12;
-            // 
-            // lbGhiChu
-            // 
-            this.lbGhiChu.AutoSize = true;
-            this.lbGhiChu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lbGhiChu.Location = new System.Drawing.Point(42, 219);
-            this.lbGhiChu.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbGhiChu.Name = "lbGhiChu";
-            this.lbGhiChu.Size = new System.Drawing.Size(67, 20);
-            this.lbGhiChu.TabIndex = 15;
-            this.lbGhiChu.Text = "Ghi chú";
             // 
             // btHuy
             // 
@@ -139,8 +117,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(438, 383);
-            this.Controls.Add(this.txtGhiChu);
-            this.Controls.Add(this.lbGhiChu);
             this.Controls.Add(this.btHuy);
             this.Controls.Add(this.btTao);
             this.Controls.Add(this.txtMatKhau);
@@ -160,8 +136,6 @@
         private System.Windows.Forms.Label lbTaoTK;
         private System.Windows.Forms.Label lbTenDangNhap;
         private System.Windows.Forms.TextBox txtTenDangNhap;
-        private System.Windows.Forms.TextBox txtGhiChu;
-        private System.Windows.Forms.Label lbGhiChu;
         private System.Windows.Forms.Button btHuy;
         private System.Windows.Forms.Button btTao;
         private System.Windows.Forms.TextBox txtMatKhau;

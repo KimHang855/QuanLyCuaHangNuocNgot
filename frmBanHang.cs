@@ -27,27 +27,71 @@ namespace QuanLyCuaHangNuocNgot
 
         private void btnTongTien_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtMaSP.Text))
+                MessageBox.Show("Vui lòng chọn sản phẩm trước");
+            else
             if (string.IsNullOrEmpty(txtSLBan.Text))
                 MessageBox.Show("Vui lòng nhập số lượng bán");
+
             else
             {
-                int Gia = Int32.Parse(txtGiaBan.Text);
-                int SoLuongBan = Int32.Parse(txtSLBan.Text);
-                txtTongTien.Text = (Gia * SoLuongBan).ToString();
-                int a;
-                bool d = Int32.TryParse(txtThanhToan.Text, out a);
-                a += Int32.Parse(txtTongTien.Text);
-                txtThanhToan.Text = (a).ToString();
+                int b;
+                bool o = int.TryParse(txtSLBan.Text, out b);
+
+                if (!o)
+                    MessageBox.Show("Vui lòng nhập số lượng là một số");
+                else
+                {
+                    int ban = Int32.Parse(txtSLBan.Text);
+                    int ton = Int32.Parse(txtSLTon.Text);
+                    if (ban > ton)
+                        MessageBox.Show("Số lượng bán không đủ");
+                    else
+                    {
+                        int Gia = Int32.Parse(txtGiaBan.Text);
+                        int SoLuongBan = Int32.Parse(txtSLBan.Text);
+                        txtTongTien.Text = (Gia * SoLuongBan).ToString();
+
+                        int a;
+                        // int b = Int32.Parse(txtTongTien.Text);
+                        bool d = Int32.TryParse(txtThanhToan.Text, out a);
+                        a += Int32.Parse(txtTongTien.Text);
+                        txtThanhToan.Text = (a).ToString();
+
+                    }
+                }
             }
         }
 
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
-            DialogResult kq3 = MessageBox.Show("Giá trị của đơn hàng này là " + txtThanhToan.Text + "", "Thông báo", MessageBoxButtons.YesNo);
-            if (kq3 == DialogResult.Yes)
+            if (string.IsNullOrEmpty(txtThanhToan.Text))
+                MessageBox.Show("Vui lòng nhập thông tin đơn hàng");
+
+            else
             {
-                MessageBox.Show("Hóa đơn đã được thanh toán thành công");
-                Application.Exit();
+                DialogResult kq3 = MessageBox.Show("Giá trị của đơn hàng này là " + txtThanhToan.Text + "", "Thông báo", MessageBoxButtons.YesNo);
+                if (kq3 == DialogResult.Yes)
+                {
+                    MessageBox.Show("Hóa đơn đã được thanh toán thành công");
+                    connnection.Open();
+                    int SoLuongTon = Int32.Parse(txtSLTon.Text);
+                    int SoLuongBan = Int32.Parse(txtSLBan.Text);
+                    txtSLTon.Text = (SoLuongTon - SoLuongBan).ToString();
+                    string sqlCapNhat = "Update SanPham Set TenSP=@TenSP, Gia=@Gia, SoLuongTon=@SoLuongTon, Ngay=@Ngay, NgayBan=@NgayBan, DonVi=@DonVi Where MaSP=@MaSP ";
+                    SqlCommand cmd = new SqlCommand(sqlCapNhat, connnection);
+                    cmd.Parameters.AddWithValue("MaSP", txtMaSP.Text);
+                    cmd.Parameters.AddWithValue("TenSP", txtTenSP.Text);
+                    cmd.Parameters.AddWithValue("Gia", txtGiaBan.Text);
+                    cmd.Parameters.AddWithValue("SoLuongTon", txtSLTon.Text);
+                    cmd.Parameters.AddWithValue("Ngay", txtNgayBan.Text);
+                    cmd.Parameters.AddWithValue("NgayBan", txtNgayBan.Text);
+                    cmd.Parameters.AddWithValue("DonVi", txtDVT.Text);
+                    cmd.ExecuteNonQuery();
+                    HienThi();
+                    connnection.Close();
+                    //Application.Exit();
+                }
             }
         }
 
@@ -100,6 +144,22 @@ namespace QuanLyCuaHangNuocNgot
             cmd.ExecuteNonQuery();                    
             MessageBox.Show("Cập nhật thành công");
             HienThi();            
+            connnection.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            connnection.Open();
+            txtMaSP.Text = null;
+            txtTenSP.Text = null;
+            txtDVT.Text = null;
+            txtGiaBan.Text = null;
+            txtSLTon.Text = null;
+            txtNgayBan.Text = null;
+            txtTongTien.Text = null;
+            txtThanhToan.Text = null;
+            txtSLBan.Text = null;
+            HienThi();
             connnection.Close();
         }
     }
