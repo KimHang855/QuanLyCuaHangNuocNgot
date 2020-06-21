@@ -28,12 +28,7 @@ namespace QuanLyCuaHangNuocNgot
             frmNCC frmNCC = new frmNCC();
             frmNCC.ShowDialog();
         }
-
-        private void mnuDT_Click(object sender, EventArgs e)
-        {
-            frmDThu frmDThu = new frmDThu();
-            frmDThu.ShowDialog();
-        }
+      
 
         private void mnuThoat_Click_1(object sender, EventArgs e)
         {

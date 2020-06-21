@@ -65,12 +65,6 @@
     <Compile Include="frmDoiMatKhau.Designer.cs">
       <DependentUpon>frmDoiMatKhau.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmDThu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmDThu.Designer.cs">
-      <DependentUpon>frmDThu.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,9 +116,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDoiMatKhau.resx">
       <DependentUpon>frmDoiMatKhau.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmDThu.resx">
-      <DependentUpon>frmDThu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>

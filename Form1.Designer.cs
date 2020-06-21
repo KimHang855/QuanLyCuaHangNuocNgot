@@ -58,7 +58,7 @@
             this.mnuDT.Name = "mnuDT";
             this.mnuDT.Size = new System.Drawing.Size(146, 24);
             this.mnuDT.Text = "Báo cáo doanh thu";
-            this.mnuDT.Click += new System.EventHandler(this.mnuDT_Click);
+            
             // 
             // mnuBanHang
             // 
