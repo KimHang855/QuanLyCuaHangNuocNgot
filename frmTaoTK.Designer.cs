@@ -72,7 +72,7 @@
             // btHuy
             // 
             this.btHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btHuy.Location = new System.Drawing.Point(300, 265);
+            this.btHuy.Location = new System.Drawing.Point(309, 233);
             this.btHuy.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btHuy.Name = "btHuy";
             this.btHuy.Size = new System.Drawing.Size(95, 55);
@@ -84,7 +84,7 @@
             // btTao
             // 
             this.btTao.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btTao.Location = new System.Drawing.Point(153, 265);
+            this.btTao.Location = new System.Drawing.Point(162, 233);
             this.btTao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btTao.Name = "btTao";
             this.btTao.Size = new System.Drawing.Size(97, 55);
@@ -117,7 +117,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(528, 383);
+            this.ClientSize = new System.Drawing.Size(528, 346);
             this.Controls.Add(this.btHuy);
             this.Controls.Add(this.btTao);
             this.Controls.Add(this.txtMatKhau);
