@@ -42,13 +42,17 @@
             this.txtDiaChi = new System.Windows.Forms.TextBox();
             this.txtGC = new System.Windows.Forms.TextBox();
             this.dgvNCC = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnThem = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnDong = new System.Windows.Forms.Button();
             this.btnTim = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
-            this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.txtThanhToan = new System.Windows.Forms.TextBox();
+            this.btnThanhToan = new System.Windows.Forms.Button();
+            this.txtTong = new System.Windows.Forms.TextBox();
+            this.btnTong = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNCC)).BeginInit();
             this.SuspendLayout();
             // 
@@ -171,6 +175,11 @@
             this.dgvNCC.TabIndex = 13;
             this.dgvNCC.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNCC_CellClick);
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Column1";
+            this.Column1.Name = "Column1";
+            // 
             // btnThem
             // 
             this.btnThem.Location = new System.Drawing.Point(197, 454);
@@ -231,16 +240,49 @@
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
-            // Column1
+            // txtThanhToan
             // 
-            this.Column1.HeaderText = "Column1";
-            this.Column1.Name = "Column1";
+            this.txtThanhToan.Location = new System.Drawing.Point(758, 121);
+            this.txtThanhToan.Name = "txtThanhToan";
+            this.txtThanhToan.Size = new System.Drawing.Size(104, 22);
+            this.txtThanhToan.TabIndex = 53;
+            // 
+            // btnThanhToan
+            // 
+            this.btnThanhToan.Location = new System.Drawing.Point(629, 115);
+            this.btnThanhToan.Name = "btnThanhToan";
+            this.btnThanhToan.Size = new System.Drawing.Size(101, 35);
+            this.btnThanhToan.TabIndex = 52;
+            this.btnThanhToan.Text = "Thanh toán";
+            this.btnThanhToan.UseVisualStyleBackColor = true;
+            this.btnThanhToan.Click += new System.EventHandler(this.btnThanhToan_Click);
+            // 
+            // txtTong
+            // 
+            this.txtTong.Location = new System.Drawing.Point(758, 61);
+            this.txtTong.Name = "txtTong";
+            this.txtTong.Size = new System.Drawing.Size(104, 22);
+            this.txtTong.TabIndex = 51;
+            // 
+            // btnTong
+            // 
+            this.btnTong.Location = new System.Drawing.Point(629, 52);
+            this.btnTong.Name = "btnTong";
+            this.btnTong.Size = new System.Drawing.Size(101, 36);
+            this.btnTong.TabIndex = 50;
+            this.btnTong.Text = "Tổng";
+            this.btnTong.UseVisualStyleBackColor = true;
+            this.btnTong.Click += new System.EventHandler(this.btnTong_Click);
             // 
             // frmNCC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(875, 528);
+            this.Controls.Add(this.txtThanhToan);
+            this.Controls.Add(this.btnThanhToan);
+            this.Controls.Add(this.txtTong);
+            this.Controls.Add(this.btnTong);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnTim);
             this.Controls.Add(this.btnDong);
@@ -293,5 +335,9 @@
         private System.Windows.Forms.Button btnTim;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
+        private System.Windows.Forms.TextBox txtThanhToan;
+        private System.Windows.Forms.Button btnThanhToan;
+        private System.Windows.Forms.TextBox txtTong;
+        private System.Windows.Forms.Button btnTong;
     }
 }

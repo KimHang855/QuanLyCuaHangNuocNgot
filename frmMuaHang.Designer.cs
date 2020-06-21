@@ -62,7 +62,7 @@
             this.txtSLTon.Location = new System.Drawing.Point(605, 53);
             this.txtSLTon.Name = "txtSLTon";
             this.txtSLTon.ReadOnly = true;
-            this.txtSLTon.Size = new System.Drawing.Size(100, 22);
+            this.txtSLTon.Size = new System.Drawing.Size(106, 22);
             this.txtSLTon.TabIndex = 53;
             // 
             // lbSLTon

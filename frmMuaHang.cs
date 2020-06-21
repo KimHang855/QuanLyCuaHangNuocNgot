@@ -73,6 +73,11 @@ namespace QuanLyCuaHangNuocNgot
         private void btnSua_Click(object sender, EventArgs e)
         {
             cn.Open();
+            //mua sản phẩm cập nhật lại số lượng tồn
+            int SoLuongTon = Int32.Parse(txtSLTon.Text);
+            int SoLuongMua = Int32.Parse(txtSLMua.Text);
+            txtSLTon.Text = (SoLuongTon + SoLuongMua).ToString();
+
             //Cập nhật form NCC
             string sqlInsert = "Update NCC Set TenNCC=@TenNCC, Gia=@Gia, SoLuongMua=@SoLuongMua, DiaChi=@DiaChi,GhiChu=@GhiChu Where MaNCC=@MaNCC ";
             SqlCommand cmd = new SqlCommand(sqlInsert, cn);
@@ -82,11 +87,8 @@ namespace QuanLyCuaHangNuocNgot
             cmd.Parameters.AddWithValue("SoLuongMua", txtSLMua.Text);
             cmd.Parameters.AddWithValue("DiaChi", txtDiaChi.Text);
             cmd.Parameters.AddWithValue("GhiChu", txtGC.Text);
-
-            //mua sản phẩm cập nhật lại số lượng tồn
-            int SoLuongTon = Int32.Parse(txtSLTon.Text);
-            int SoLuongMua = Int32.Parse(txtSLMua.Text);
-            txtSLTon.Text = (SoLuongTon + SoLuongMua).ToString();
+            HienThi();
+            
 
             //hiện số lượng tồn
             string sqlCapNhat = "Update SanPham Set TenSP=@TenSP, Gia=@Gia, SoLuongTon=@SoLuongTon, Ngay=@Ngay, NgayBan=@NgayBan, DonVi=@DonVi Where MaSP=@MaSP ";
@@ -94,7 +96,7 @@ namespace QuanLyCuaHangNuocNgot
             cmd.Parameters.AddWithValue("SoLuongTon", txtSLTon.Text);
             cmd.ExecuteNonQuery();
             MessageBox.Show("Cập nhật thành công");
-            HienThi();
+            HienThi_SP();
             //ResetValues();
             cn.Close();
         }

@@ -167,6 +167,7 @@
             this.cbMaNCC.Name = "cbMaNCC";
             this.cbMaNCC.Size = new System.Drawing.Size(151, 24);
             this.cbMaNCC.TabIndex = 61;
+            this.cbMaNCC.SelectedIndexChanged += new System.EventHandler(this.cbMaNCC_SelectedIndexChanged);
             this.cbMaNCC.SelectionChangeCommitted += new System.EventHandler(this.cbMaNCC_SelectionChangeCommitted);
             // 
             // lbMaNCC

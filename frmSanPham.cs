@@ -41,7 +41,7 @@ namespace QuanLyCuaHangNuocNgot
             dt.Load(dr);
             //hoặc da.Fill(dt);
             //Gán dl nguồn
-            da.SelectCommand = cmd;
+            //da.SelectCommand = cmd;
             cbMaNCC.DataSource = dt;
             cbMaNCC.DisplayMember = "TenNCC";
             cbMaNCC.ValueMember = "MaNCC";
@@ -92,7 +92,7 @@ namespace QuanLyCuaHangNuocNgot
             cmd.Parameters.AddWithValue("SoLuongTon", txtSLTon.Text);            
             cmd.Parameters.AddWithValue("Ngay", txtNgay.Text); //lỗi ngày
             cmd.Parameters.AddWithValue("DonVi", txtDVT.Text);
-            //cmd.Parameters.AddWithValue("MaNCC", cbMaNCC.Text);
+            cmd.Parameters.AddWithValue("MaNCC", cbMaNCC.Text);
             cmd.ExecuteNonQuery();
             MessageBox.Show("Cập nhật thông tin sản phẩm thành công");
             HienThi();
@@ -116,7 +116,7 @@ namespace QuanLyCuaHangNuocNgot
             cmd.Parameters.AddWithValue("SoLuongTon", txtSLTon.Text);        
             cmd.Parameters.AddWithValue("Ngay", txtNgay.Text); 
             cmd.Parameters.AddWithValue("DonVi", txtDVT.Text);
-            //cmd.Parameters.AddWithValue("MaNCC", cbMaNCC.Text);
+            cmd.Parameters.AddWithValue("MaNCC", cbMaNCC.Text);
             cmd.ExecuteNonQuery();
             MessageBox.Show("Xóa sản phẩm thành công");
             HienThi();
@@ -135,7 +135,7 @@ namespace QuanLyCuaHangNuocNgot
             cmd.Parameters.AddWithValue("SoLuongTon", txtSLTon.Text);
             cmd.Parameters.AddWithValue("Ngay", txtNgay.Text);
             cmd.Parameters.AddWithValue("DonVi", txtDVT.Text);
-            //cmd.Parameters.AddWithValue("MaNCC", cbMaNCC.Text);
+            cmd.Parameters.AddWithValue("MaNCC", cbMaNCC.Text);
             cmd.ExecuteNonQuery();
             SqlDataReader dr = cmd.ExecuteReader();
             DataTable dt = new DataTable();
@@ -173,14 +173,26 @@ namespace QuanLyCuaHangNuocNgot
             //da.Fill(dt);
             //da.Dispose();
             //dgvSanPham.DataSource = dt;
-            string sql = "Select * From SanPham Where MaNCC="+cbMaNCC;
+            //string sql = "Select * From SanPham Where MaNCC='"+cbMaNCC+"'";
+            //SqlCommand cmd = new SqlCommand(sql, cn);
+            //SqlDataReader dr = cmd.ExecuteReader();
+            //DataTable dt = new DataTable();
+            //da = new SqlDataAdapter(cmd);
+            //dt.Load(dr);
+            //dgvSanPham.DataSource = dt;
+        }
+
+        private void cbMaNCC_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //cn.Open();
+            string sql = "Select * From SanPham Where MaNCC='" + cbMaNCC + "'";
             SqlCommand cmd = new SqlCommand(sql, cn);
             SqlDataReader dr = cmd.ExecuteReader();
             DataTable dt = new DataTable();
             da = new SqlDataAdapter(cmd);
             dt.Load(dr);
             dgvSanPham.DataSource = dt;
+            //cn.Close();
         }
-
     }
 }
